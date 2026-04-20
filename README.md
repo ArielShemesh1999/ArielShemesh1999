@@ -124,8 +124,12 @@ A curated list of the best books, courses, tools and datasets at the intersectio
 
 <div align="center">
 
-<a href="mailto:arielshemesh1999@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+<a href="https://www.linkedin.com/in/ariel-shemesh/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 <a href="https://github.com/ArielShemesh1999"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+
+<br><br>
+
+> _"Build it. Learn from it. Improve it."_
 
 </div>
 
