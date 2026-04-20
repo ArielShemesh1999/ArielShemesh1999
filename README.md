@@ -42,7 +42,7 @@
 <br>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ArielShemesh1999&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" />
+  <img src="https://github-trophies.vercel.app/?username=ArielShemesh1999&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" />
 </div>
 
 <br>
