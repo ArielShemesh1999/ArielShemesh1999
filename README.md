@@ -36,6 +36,13 @@
 <br>
 
 <div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ArielShemesh1999&theme=github_dark" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ArielShemesh1999&theme=github_dark&utcOffset=3" height="180" />
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=ArielShemesh1999&bg_color=0D1117&color=C9A84C&line=C9A84C&point=FFFFFF&area=true&area_color=C9A84C&hide_border=true" />
 </div>
 
