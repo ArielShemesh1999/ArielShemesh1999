@@ -29,7 +29,7 @@
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img height="180" src="https://github-readme-stats.vercel.app/api?username=ArielShemesh1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=C9A84C&icon_color=C9A84C&text_color=FFFFFF&count_private=true&include_all_commits=true" />
+  <img height="180" src="https://github-readme-stats.vercel.app/api?username=ArielShemesh1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=C9A84C&icon_color=C9A84C&text_color=FFFFFF&count_private=true" />
   <img height="180" src="https://github-readme-streak-stats.herokuapp.com?user=ArielShemesh1999&theme=github-dark-blue&hide_border=true&background=0D1117&ring=C9A84C&fire=C9A84C&currStreakLabel=C9A84C&sideLabels=C9A84C&dates=888888" />
 </div>
 
@@ -59,7 +59,7 @@
 <summary><b>📊 Data Analysis</b></summary>
 <br>
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=yellow)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
