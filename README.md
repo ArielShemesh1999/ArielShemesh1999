@@ -30,19 +30,7 @@
 
 <div align="center">
   <img height="180" src="https://github-readme-stats.vercel.app/api?username=ArielShemesh1999&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=C9A84C&icon_color=C9A84C&text_color=FFFFFF&count_private=true" />
-  <img height="180" src="https://github-readme-streak-stats.herokuapp.com?user=ArielShemesh1999&theme=github-dark-blue&hide_border=true&background=0D1117&ring=C9A84C&fire=C9A84C&currStreakLabel=C9A84C&sideLabels=C9A84C&dates=888888" />
-</div>
-
-<br>
-
-<div align="center">
   <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ArielShemesh1999&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=C9A84C&text_color=FFFFFF&langs_count=10" />
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://github-trophies.vercel.app/?username=ArielShemesh1999&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" />
 </div>
 
 <br>
