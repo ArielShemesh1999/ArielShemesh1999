@@ -120,6 +120,16 @@ A curated list of the best books, courses, tools and datasets at the intersectio
 
 ---
 
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake.svg" />
+  </picture>
+</div>
+
+---
+
 ## Connect
 
 <div align="center">
