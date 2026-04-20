@@ -189,15 +189,15 @@ Classify reviews as positive/negative/neutral using state-of-the-art AI models.
 <tr>
 <td width="50%" valign="top">
 
-### 📈 [Market & Crypto Analytics](https://github.com/ArielShemesh1999/awesome-data-business)
-> Market research & on-chain data resources
+### 📈 [Market & Crypto Analytics](https://github.com/ArielShemesh1999/market-crypto-analysis)
+> Stocks, crypto, on-chain data & macro analysis
 
-![Crypto](https://img.shields.io/badge/Crypto-F7931A?style=flat-square&logo=bitcoin&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Blockchain](https://img.shields.io/badge/Blockchain-121D33?style=flat-square&logo=ethereum&logoColor=white)
 
-Curated resources for market analysis, crypto research & business intelligence.
+Data-driven market research — crypto, stocks, macro/micro indicators & on-chain metrics.
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/awesome-data-business)
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/market-crypto-analysis)
 
 </td>
 <td width="50%" valign="top">
