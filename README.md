@@ -18,8 +18,8 @@
 <!-- ║         PROFILE BADGES                ║ -->
 <!-- ╚═══════════════════════════════════════╝ -->
 
-  <img src="https://img.shields.io/github/followers/ArielShemesh1999?style=for-the-badge&color=C9A84C&labelColor=0D1117&label=Followers" />
   <img src="https://img.shields.io/github/stars/ArielShemesh1999?style=for-the-badge&color=C9A84C&labelColor=0D1117&label=Stars" />
+    <img src="https://img.shields.io/github/followers/ArielShemesh1999?style=for-the-badge&color=C9A84C&labelColor=0D1117&label=Followers" />
   <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftimeapi.io%2Fapi%2FTime%2Fcurrent%2Fzone%3FtimeZone%3DAsia%2FJerusalem&query=%24.time&label=Local+Time&color=C9A84C&labelColor=0D1117&style=for-the-badge" />
 </div>
 
