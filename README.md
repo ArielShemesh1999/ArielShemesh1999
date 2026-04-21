@@ -47,14 +47,14 @@ End-to-end analysis of sales data — exploratory data analysis, SQL queries, in
 </td>
 <td width="50%" valign="top">
 
-### [Web Portfolio](https://github.com/ArielShemesh1999/web-portfolio)
-> Personal portfolio website
+### [Personal Portfolio](https://github.com/ArielShemesh1999/web-portfolio)
+> Data into decisions — personal portfolio site
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 
-Modern, responsive portfolio website showcasing projects, skills and certifications. Built with vanilla HTML, CSS and JavaScript.
+Production-grade portfolio built with React 19, Vite 8 and Tailwind 4 — framer-motion micro-interactions, Lenis smooth scroll, and a 3D glass profile card.
 
 [![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/web-portfolio)
 
