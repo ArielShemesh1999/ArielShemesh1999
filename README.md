@@ -46,7 +46,7 @@ Production-grade portfolio built with React 19, Vite 8 and Tailwind 4 — framer
 </td>
 <td width="50%" valign="top">
 
-### [AE MOMENTS](https://github.com/ArielShemesh1999/ae-moments)
+### [AE MOMENTS](https://github.com/ArielShemesh1999/ae-moments-info)
 > Hebrew RTL landing — magnet event photography
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -57,7 +57,7 @@ Production-grade portfolio built with React 19, Vite 8 and Tailwind 4 — framer
 RTL Hebrew landing page for an event-photography magnet service — Three.js logo, framer-motion sections, gallery, FAQ and contact form.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://ae-moments.vercel.app)
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/ae-moments)
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/ae-moments-info)
 
 </td>
 </tr>
