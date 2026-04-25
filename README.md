@@ -31,7 +31,7 @@
 <tr>
 <td width="50%" valign="top">
 
-### [Personal Portfolio](https://github.com/ArielShemesh1999/arielshemesh_web)
+### [Personal Portfolio](https://github.com/ArielShemesh1999/personal-website-info)
 > Data into decisions — personal portfolio site
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -41,7 +41,7 @@
 Production-grade portfolio built with React 19, Vite 8 and Tailwind 4 — framer-motion micro-interactions, Lenis smooth scroll, and a 3D glass profile card.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/arielshemesh_web)
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/personal-website-info)
 
 </td>
 <td width="50%" valign="top">
