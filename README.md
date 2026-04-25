@@ -31,21 +31,7 @@
 <tr>
 <td width="50%" valign="top">
 
-### [Data Sales Analysis](https://github.com/ArielShemesh1999/data-sales-analysis)
-> Python + SQL analysis with business insights
-
-![Python](https://img.shields.io/badge/Python-14354C?style=flat-square&logo=python&logoColor=yellow)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-
-End-to-end analysis of sales data — exploratory data analysis, SQL queries, interactive visualizations and actionable business recommendations.
-
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/data-sales-analysis)
-
-</td>
-<td width="50%" valign="top">
-
-### [Personal Portfolio](https://github.com/ArielShemesh1999/web-portfolio)
+### [Personal Portfolio](https://github.com/ArielShemesh1999/arielshemesh_web)
 > Data into decisions — personal portfolio site
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -54,63 +40,24 @@ End-to-end analysis of sales data — exploratory data analysis, SQL queries, in
 
 Production-grade portfolio built with React 19, Vite 8 and Tailwind 4 — framer-motion micro-interactions, Lenis smooth scroll, and a 3D glass profile card.
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/web-portfolio)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Power BI Dashboard](https://github.com/ArielShemesh1999/powerbi-business-dashboard)
-> Business intelligence & KPI tracking
-
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/DAX-0D1117?style=flat-square&logoColor=white)
-
-Interactive business intelligence dashboard with drill-down capabilities, dynamic filters and executive-level KPI tracking.
-
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/powerbi-business-dashboard)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/arielshemesh_web)
 
 </td>
 <td width="50%" valign="top">
 
-### [AI Sentiment Analysis](https://github.com/ArielShemesh1999/ai-customer-sentiment)
-> NLP-powered customer review analysis
+### [AE MOMENTS](https://github.com/ArielShemesh1999/ae-moments)
+> Hebrew RTL landing — magnet event photography
 
-![Python](https://img.shields.io/badge/Python-14354C?style=flat-square&logo=python&logoColor=yellow)
-![HuggingFace](https://img.shields.io/badge/🤗_HF-FFD21E?style=flat-square&logoColor=black)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 
-Classification system for customer reviews — positive, negative or neutral sentiment using state-of-the-art NLP models.
+RTL Hebrew landing page for an event-photography magnet service — Three.js logo, framer-motion sections, gallery, FAQ and contact form.
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/ai-customer-sentiment)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Market & Crypto Analytics](https://github.com/ArielShemesh1999/market-crypto-analysis)
-> Stocks, crypto, on-chain data & macro analysis
-
-![Python](https://img.shields.io/badge/Python-14354C?style=flat-square&logo=python&logoColor=yellow)
-![Blockchain](https://img.shields.io/badge/Blockchain-121D33?style=flat-square&logo=ethereum&logoColor=white)
-
-Data-driven market research across crypto markets, stock trends, macro/micro economic indicators and on-chain metrics.
-
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/market-crypto-analysis)
-
-</td>
-<td width="50%" valign="top">
-
-### [Awesome Data + Business](https://github.com/ArielShemesh1999/awesome-data-business)
-> Curated resource collection
-
-![Awesome](https://img.shields.io/badge/Awesome-0D1117?style=flat-square&logo=awesome-lists&logoColor=white)
-![Resources](https://img.shields.io/badge/100+_Resources-C9A84C?style=flat-square&logoColor=black)
-
-A curated list of the best books, courses, tools and datasets at the intersection of data analytics and business intelligence.
-
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/awesome-data-business)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://ae-moments.vercel.app)
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/ae-moments)
 
 </td>
 </tr>
