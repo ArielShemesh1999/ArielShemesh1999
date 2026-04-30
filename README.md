@@ -64,34 +64,58 @@ RTL Hebrew landing page for an event-photography magnet service — Three.js log
 <tr>
 <td width="50%" valign="top">
 
-### [MasterCrypto](https://github.com/ArielShemesh1999/MasterCrypto)
-> קורס קריפטו מקצועי בעברית
+### [Command](https://github.com/ArielShemesh1999/Command)
+> Your personal command center for everything that matters
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/MasterCrypto)
+![CRM](https://img.shields.io/badge/CRM-C9A84C?style=flat-square&labelColor=0D1117)
+![Multi-Channel](https://img.shields.io/badge/Multi--Channel-0D1117?style=flat-square&labelColor=C9A84C)
+![AI](https://img.shields.io/badge/AI-Drafted_Replies-0D1117?style=flat-square&labelColor=C9A84C)
+
+A unified personal CRM that pulls every conversation, contact, deal, task and calendar event into one workspace — with an autonomous assistant that drafts replies you approve, never sends unsupervised.
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Command)
 
 </td>
 <td width="50%" valign="top">
 
-### [Command](https://github.com/ArielShemesh1999/Command)
-> Personal CRM with autonomous bot integrations
+### [Bot-UI](https://github.com/ArielShemesh1999/Bot-UI)
+> A personal AI companion that orchestrates a team of agents
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Command)
+![Multi-Agent](https://img.shields.io/badge/Multi--Agent-C9A84C?style=flat-square&labelColor=0D1117)
+![Voice Mode](https://img.shields.io/badge/Voice_Mode-0D1117?style=flat-square&labelColor=C9A84C)
+![Memory](https://img.shields.io/badge/Persistent_Memory-0D1117?style=flat-square&labelColor=C9A84C)
+
+A multi-agent assistant where specialized bots collaborate behind one conversational interface — voice mode, persistent memory and Obsidian sync make it feel less like a chatbot and more like a colleague.
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Bot-UI)
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### [Bot-UI](https://github.com/ArielShemesh1999/Bot-UI)
-> Multi-agent bot orchestration interface
+### [MasterCrypto](https://github.com/ArielShemesh1999/MasterCrypto)
+> A practical crypto course for the Hebrew-speaking world
 
-[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Bot-UI)
+![Education](https://img.shields.io/badge/Education-C9A84C?style=flat-square&labelColor=0D1117)
+![Crypto](https://img.shields.io/badge/Crypto-0D1117?style=flat-square&labelColor=C9A84C)
+![Hebrew RTL](https://img.shields.io/badge/Hebrew_RTL-0D1117?style=flat-square&labelColor=C9A84C)
+
+Landing experience for a no-nonsense crypto course aimed at Hebrew-speaking learners — curriculum, instructor profile, FAQ and sign-up flow. Serious education in a market full of hype.
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/MasterCrypto)
 
 </td>
 <td width="50%" valign="top">
 
 ### [gentleman4u](https://github.com/ArielShemesh1999/gentleman4u)
-> Hebrew RTL e-commerce concept site
+> Focused men's grooming and lifestyle e-commerce
+
+![E-Commerce](https://img.shields.io/badge/E--Commerce-C9A84C?style=flat-square&labelColor=0D1117)
+![Catalog](https://img.shields.io/badge/Catalog-0D1117?style=flat-square&labelColor=C9A84C)
+![Hebrew RTL](https://img.shields.io/badge/Hebrew_RTL-0D1117?style=flat-square&labelColor=C9A84C)
+
+A complete e-commerce concept for men's grooming, accessories and lifestyle goods — opinionated, restrained, and built around the buying decision rather than the merchandising spreadsheet.
 
 [![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/gentleman4u)
 
@@ -101,14 +125,29 @@ RTL Hebrew landing page for an event-photography magnet service — Three.js log
 <td width="50%" valign="top">
 
 ### [Prompt Engineer](https://github.com/ArielShemesh1999/prompt-engineering)
-> Chat interface that turns rough ideas into precise prompts
+> Turn rough ideas into precise prompts through guided questions
+
+![AI Tool](https://img.shields.io/badge/AI_Tool-C9A84C?style=flat-square&labelColor=0D1117)
+![Local-First](https://img.shields.io/badge/Local--First-0D1117?style=flat-square&labelColor=C9A84C)
+![No Backend](https://img.shields.io/badge/No_Backend-0D1117?style=flat-square&labelColor=C9A84C)
+
+A focused chat tool that takes a vague idea and walks you through four targeted questions until it's a polished, AI-ready prompt — no accounts, no backend, runs entirely in your browser.
 
 [![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/prompt-engineering)
 
 </td>
 <td width="50%" valign="top">
 
-&nbsp;
+### [command-crm](https://github.com/ArielShemesh1999/command-crm) · [bot-ui-frontend](https://github.com/ArielShemesh1999/bot-ui-frontend)
+> Standalone visual previews
+
+![Static](https://img.shields.io/badge/Static_Demo-C9A84C?style=flat-square&labelColor=0D1117)
+![Single File](https://img.shields.io/badge/Single_File-0D1117?style=flat-square&labelColor=C9A84C)
+
+Self-contained visual previews of the Command CRM and Bot-UI experiences — open the page and explore the workspace without spinning up any backend.
+
+[![Repo](https://img.shields.io/badge/CRM_Preview-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/command-crm)
+[![Repo](https://img.shields.io/badge/Bot_Preview-0D1117?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ArielShemesh1999/bot-ui-frontend)
 
 </td>
 </tr>
