@@ -61,6 +61,57 @@ RTL Hebrew landing page for an event-photography magnet service — Three.js log
 
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+
+### [MasterCrypto](https://github.com/ArielShemesh1999/MasterCrypto)
+> קורס קריפטו מקצועי בעברית
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/MasterCrypto)
+
+</td>
+<td width="50%" valign="top">
+
+### [Command](https://github.com/ArielShemesh1999/Command)
+> Personal CRM with autonomous bot integrations
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Command)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### [Bot-UI](https://github.com/ArielShemesh1999/Bot-UI)
+> Multi-agent bot orchestration interface
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/Bot-UI)
+
+</td>
+<td width="50%" valign="top">
+
+### [gentleman4u](https://github.com/ArielShemesh1999/gentleman4u)
+> Hebrew RTL e-commerce concept site
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/gentleman4u)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### [Prompt Engineer](https://github.com/ArielShemesh1999/prompt-engineering)
+> Chat interface that turns rough ideas into precise prompts
+
+[![Repo](https://img.shields.io/badge/View_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/prompt-engineering)
+
+</td>
+<td width="50%" valign="top">
+
+&nbsp;
+
+</td>
+</tr>
 </table>
 
 ---
