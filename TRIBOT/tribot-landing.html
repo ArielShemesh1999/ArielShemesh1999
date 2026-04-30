@@ -1,0 +1,3014 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-gem="crystal">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+
+<title>TRIBOT — Little Snitch for AI agents</title>
+<meta name="description" content="A 100% local desktop sentinel that learns your AI agent's behavior over 7 days, then watches every tool call with three independent supervisors reporting to a Master that asks you before executing." />
+<meta name="author" content="Ariel Shemesh" />
+
+<!-- TODO: replace https://tribot.dev once production domain is finalized -->
+<link rel="canonical" href="https://tribot.dev/" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%235EADFF'/%3E%3Cstop offset='55%25' stop-color='%230099ff'/%3E%3Cstop offset='100%25' stop-color='%23003D82'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3Ccircle cx='12' cy='11' r='3' fill='white' fill-opacity='0.55'/%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tribot.dev/" />
+<meta property="og:title" content="TRIBOT — Little Snitch for AI agents" />
+<meta property="og:description" content="Three independent supervisors watch every tool call. A Master asks before executing. The kill switch is back in your hands." />
+<meta property="og:site_name" content="TRIBOT" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://tribot.dev/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="TRIBOT — three supervisors + one Master with the kill switch" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="TRIBOT — Little Snitch for AI agents" />
+<meta name="twitter:description" content="Three independent supervisors watch every tool call. A Master asks before executing." />
+<meta name="twitter:image" content="https://tribot.dev/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TRIBOT",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "macOS, Windows",
+  "description": "A 100% local desktop sentinel for AI agents. Three independent supervisors (Persona / Skills / Runtime) watch every tool call and report to a Master that asks the user before executing.",
+  "url": "https://tribot.dev/",
+  "offers": [
+    { "@type": "Offer", "price": "0",  "priceCurrency": "USD", "name": "Free" },
+    { "@type": "Offer", "price": "19", "priceCurrency": "USD", "name": "Solo (monthly)" },
+    { "@type": "Offer", "price": "9",  "priceCurrency": "USD", "name": "Solo (annual, per month)" }
+  ],
+  "author": { "@type": "Person", "name": "Ariel Shemesh" }
+}
+</script>
+
+<!-- 3D rendering -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+<!-- Preload 3D assets -->
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./TRIBOT_LOGO.glb" crossorigin />
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./BOSS_BOT_3D.glb" crossorigin />
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./BOT_CRYSTAL_3D.glb" crossorigin />
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./BOT_RUBY_3D.glb" crossorigin />
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./BOT_EMRAL_3D.glb" crossorigin />
+<link rel="preload" as="fetch" type="model/gltf-binary" href="./ARIEL_3D.glb" crossorigin />
+
+<!-- Fonts: Inter (display+body) · Instrument Serif (ritual) · JetBrains Mono (code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   TRIBOT SENTINEL — Unified design system
+   Synthesis of: Apple · Cursor · Figma · Framer · Runway · Vercel
+   - Dark-first canvas (Framer/Runway)
+   - Shadow-as-border depth (Vercel)
+   - Multi-font typographic craft (Cursor)
+   - Pill + circle geometry (Apple/Framer)
+   - Variable-weight precision (Figma)
+   - Editorial cinematic pacing (Runway)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Surface (dark canvas with light alternation) ─── */
+  --bg-void:        #000000;
+  --bg-canvas:      #0a0a0a;
+  --bg-elevated:    #141414;
+  --bg-card:        #1a1a1a;
+  --bg-card-2:      #1e1e1e;
+  --bg-light:       #fafafa;
+  --bg-paper:       #ffffff;
+  --bg-cream:       #f5f4ee;
+
+  /* ─── Ink ─── */
+  --ink-pure:       #ffffff;
+  --ink-100:        #f5f5f7;
+  --ink-200:        #d4d4d8;
+  --ink-300:        #a1a1aa;
+  --ink-400:        #767d88;     /* Runway Cool Slate */
+  --ink-500:        #52525b;
+  --ink-dark:       #0a0a0a;
+  --ink-dark-soft:  #171717;
+  --ink-dark-mute:  #4d4d4d;
+
+  /* ─── Accents (Framer Blue + workflow colors mapped to 4 bots) ─── */
+  --accent:         #0099ff;
+  --accent-bright:  #5EADFF;
+  --accent-soft:    rgba(0, 153, 255, 0.15);
+  --accent-glow:    rgba(0, 153, 255, 0.35);
+
+  /* Crystal (Persona/Soul) */
+  --crystal:        #5EADFF;
+  --crystal-deep:   #0066ff;
+  --crystal-soft:   rgba(94, 173, 255, 0.12);
+  --crystal-glow:   rgba(94, 173, 255, 0.30);
+
+  /* Emerald (Skills) */
+  --emerald:        #34D89A;
+  --emerald-deep:   #10B27F;
+  --emerald-soft:   rgba(52, 216, 154, 0.12);
+  --emerald-glow:   rgba(52, 216, 154, 0.30);
+
+  /* Ruby (Runtime/Connection) */
+  --ruby:           #FF6B6F;
+  --ruby-deep:      #E5484D;
+  --ruby-soft:      rgba(255, 107, 111, 0.12);
+  --ruby-glow:      rgba(255, 107, 111, 0.30);
+
+  /* Gold (Guardian/Master) */
+  --gold:           #FFB74D;
+  --gold-deep:      #F59E0B;
+  --gold-soft:      rgba(255, 183, 77, 0.12);
+  --gold-glow:      rgba(255, 183, 77, 0.30);
+
+  /* Active gem (defaults to Crystal; swappable via gem switcher) */
+  --active:         var(--crystal);
+  --active-deep:    var(--crystal-deep);
+  --active-soft:    var(--crystal-soft);
+  --active-glow:    var(--crystal-glow);
+
+  /* ─── Status ─── */
+  --alert:          #ff5b4f;     /* Vercel Ship Red — kill-switch moments */
+  --warn:           #ffbf60;
+  --ok:             #34D89A;
+  --hover-warm:     #cf2d56;     /* Cursor warm-crimson hover signature */
+
+  /* ─── Borders (Vercel shadow-as-border) ─── */
+  --ring-1:         rgba(255, 255, 255, 0.06);
+  --ring-2:         rgba(255, 255, 255, 0.10);
+  --ring-3:         rgba(255, 255, 255, 0.16);
+  --ring-light:     rgba(0, 0, 0, 0.08);
+  --ring-light-2:   rgba(0, 0, 0, 0.14);
+
+  /* ─── Frost ─── */
+  --frost-1:        rgba(255, 255, 255, 0.04);
+  --frost-2:        rgba(255, 255, 255, 0.06);
+  --frost-3:        rgba(255, 255, 255, 0.10);
+
+  /* ─── Shadow stacks (multi-layer Vercel-style) ─── */
+  --shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 16px 32px -16px rgba(0, 0, 0, 0.6);
+  --shadow-elevated:
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 32px 64px -24px rgba(0, 0, 0, 0.7);
+  --shadow-glow:
+    0 0 0 1px var(--ring-3),
+    0 0 80px -20px var(--active-glow);
+  --shadow-light:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px #fafafa,
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 16px 32px -16px rgba(0, 0, 0, 0.08);
+
+  /* ─── Typography ─── */
+  --font-display:   "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --font-body:      "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --font-serif:     "Instrument Serif", "New York", Georgia, serif;
+  --font-mono:      "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+
+  /* ─── Spacing (8px grid) ─── */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 48px;
+  --s-9: 64px;
+  --s-10: 96px;
+  --s-11: 128px;
+
+  /* ─── Radii ─── */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-pill: 9999px;
+
+  /* ─── Motion ─── */
+  --ease:        cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap:   cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast:    120ms;
+  --dur:         200ms;
+  --dur-slow:    360ms;
+
+  /* ─── Layout ─── */
+  --max-w:       1200px;
+  --max-w-text:  720px;
+  --max-w-wide:  1440px;
+}
+
+/* Light theme */
+html[data-theme="light"] {
+  --bg-void:       #ffffff;
+  --bg-canvas:     #fafafa;
+  --bg-elevated:   #f5f4ee;
+  --bg-card:       #ffffff;
+  --bg-card-2:     #f7f7f4;
+  --ink-pure:      #0a0a0a;
+  --ink-100:       #171717;
+  --ink-200:       #4d4d4d;
+  --ink-300:       #767d88;
+  --ink-400:       #a1a1aa;
+  --ink-500:       #d4d4d8;
+  --ring-1:        rgba(0, 0, 0, 0.06);
+  --ring-2:        rgba(0, 0, 0, 0.10);
+  --ring-3:        rgba(0, 0, 0, 0.14);
+  --frost-1:       rgba(0, 0, 0, 0.03);
+  --frost-2:       rgba(0, 0, 0, 0.05);
+  --frost-3:       rgba(0, 0, 0, 0.08);
+  --shadow-card:   var(--shadow-light);
+  --shadow-elevated: var(--shadow-light);
+}
+
+/* Gem-driven active accent */
+html[data-gem="crystal"] { --active: var(--crystal); --active-deep: var(--crystal-deep); --active-soft: var(--crystal-soft); --active-glow: var(--crystal-glow); }
+html[data-gem="emerald"] { --active: var(--emerald); --active-deep: var(--emerald-deep); --active-soft: var(--emerald-soft); --active-glow: var(--emerald-glow); }
+html[data-gem="ruby"]    { --active: var(--ruby);    --active-deep: var(--ruby-deep);    --active-soft: var(--ruby-soft);    --active-glow: var(--ruby-glow); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESET + BASE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; padding: 0; }
+img, svg, video, model-viewer { display: block; max-width: 100%; }
+
+body {
+  background: var(--bg-void);
+  color: var(--ink-pure);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  font-feature-settings: "liga" 1, "kern" 1, "ss03" 1, "cv01" 1, "cv05" 1, "cv09" 1, "cv11" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--active-soft); color: var(--ink-pure); }
+
+a { color: inherit; text-decoration: none; transition: color var(--dur) var(--ease); }
+a:hover { color: var(--accent-bright); }
+button { font: inherit; color: inherit; cursor: pointer; }
+ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
+p { margin: 0; }
+hr { border: 0; height: 1px; background: var(--ring-1); margin: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY (granular weight ladder · tight negative tracking)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.display, h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(36px, 5.2vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.013em;
+  color: var(--ink-300);
+}
+
+.serif-italic, em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink-pure);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-400);
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--active);
+  box-shadow: 0 0 12px var(--active-glow);
+  animation: pulse 2.4s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.93em;
+  letter-spacing: 0;
+  font-feature-settings: "liga" 0;
+}
+
+code:not(pre code) {
+  background: var(--frost-2);
+  padding: 0.12em 0.42em;
+  border-radius: var(--r-xs);
+  font-size: 0.88em;
+  color: var(--ink-100);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.page {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+}
+
+.page-wide  { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 var(--s-7); }
+.page-text  { max-width: var(--max-w-text); margin: 0 auto; padding: 0 var(--s-7); }
+
+section { padding: var(--s-10) 0; position: relative; }
+section.tight { padding: var(--s-9) 0; }
+section.spacious { padding: var(--s-11) 0; }
+
+@media (max-width: 780px) {
+  section { padding: var(--s-9) 0; }
+  section.spacious { padding: var(--s-10) 0; }
+}
+
+.section-head {
+  max-width: 760px;
+  margin: 0 auto var(--s-9);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  align-items: center;
+}
+
+.section-head .lede { max-width: 600px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--ring-1);
+}
+
+html[data-theme="light"] .top-nav { background: rgba(250, 250, 250, 0.78); border-bottom-color: var(--ring-light); }
+
+.nav-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: var(--s-3) var(--s-7);
+  display: flex;
+  align-items: center;
+  gap: var(--s-7);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink-pure);
+}
+
+.nav-brand model-viewer {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+.nav-brand-wordmark { font-size: 17px; font-weight: 700; letter-spacing: -0.025em; }
+
+.nav-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--active);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--active-soft);
+  border: 1px solid var(--ring-1);
+}
+
+.nav-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--active);
+  box-shadow: 0 0 8px var(--active-glow);
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  margin-left: auto;
+  padding: 4px;
+  border-radius: var(--r-pill);
+  background: var(--frost-1);
+  border: 1px solid var(--ring-1);
+}
+
+.nav-tab {
+  padding: 7px var(--s-4);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-300);
+  border-radius: var(--r-pill);
+  transition: all var(--dur) var(--ease);
+}
+
+.nav-tab:hover { color: var(--ink-pure); background: var(--frost-2); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.gem-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--r-pill);
+  background: var(--frost-1);
+  border: 1px solid var(--ring-1);
+}
+
+.gem-chip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--dur) var(--ease-spring);
+}
+
+.gem-chip[data-gem="crystal"] { background: linear-gradient(135deg, #5EADFF, #0066ff); }
+.gem-chip[data-gem="emerald"] { background: linear-gradient(135deg, #34D89A, #10B27F); }
+.gem-chip[data-gem="ruby"]    { background: linear-gradient(135deg, #FF6B6F, #E5484D); }
+
+.gem-chip:hover { transform: scale(1.1); }
+.gem-chip[aria-pressed="true"] { box-shadow: 0 0 0 2px rgba(255,255,255,0.95), 0 0 0 4px rgba(0,0,0,0.4); transform: scale(1.05); }
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--frost-1);
+  border: 1px solid var(--ring-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-200);
+  transition: all var(--dur) var(--ease);
+}
+
+.theme-toggle:hover { background: var(--frost-2); color: var(--ink-pure); }
+.theme-toggle:active { transform: scale(0.95); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BUTTONS (pill geometry · two-button grammar)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 11px 22px;
+  border-radius: var(--r-pill);
+  border: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
+  white-space: nowrap;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn-primary {
+  background: var(--ink-pure);
+  color: var(--ink-dark);
+  box-shadow: 0 0 0 1px var(--ring-3), 0 8px 24px -8px rgba(255,255,255,0.2);
+}
+.btn-primary:hover { background: var(--accent-bright); color: #fff; }
+
+.btn-accent {
+  background: var(--active);
+  color: #fff;
+  box-shadow: 0 0 0 1px var(--ring-3), 0 8px 32px -8px var(--active-glow);
+}
+.btn-accent:hover { filter: brightness(1.08); }
+
+.btn-ghost {
+  background: var(--frost-1);
+  color: var(--ink-pure);
+  box-shadow: 0 0 0 1px var(--ring-2);
+  backdrop-filter: blur(20px);
+}
+.btn-ghost:hover { background: var(--frost-3); }
+
+.btn-link {
+  background: transparent;
+  color: var(--active);
+  padding: 11px 0;
+  font-weight: 500;
+}
+.btn-link:hover { color: var(--hover-warm); }
+
+.btn-icon {
+  width: 16px; height: 16px; flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  padding: var(--s-10) 0 var(--s-11);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, var(--active-soft) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 80% 30%, var(--accent-soft) 0%, transparent 70%);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.hero-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--s-9);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; gap: var(--s-8); }
+}
+
+.hero-copy { display: flex; flex-direction: column; gap: var(--s-6); }
+
+.hero h1 em {
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+
+.hero-lede {
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--ink-200);
+  max-width: 600px;
+}
+
+.hero-lede strong { color: var(--ink-pure); font-weight: 600; }
+
+.hero-cta-group {
+  display: flex;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  margin-top: var(--s-3);
+}
+
+.hero-trust {
+  display: flex;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+  padding-top: var(--s-5);
+  margin-top: var(--s-3);
+  border-top: 1px solid var(--ring-1);
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-300);
+}
+
+.trust-item svg {
+  width: 12px;
+  height: 12px;
+  color: var(--ok);
+  flex-shrink: 0;
+}
+
+.hero-character {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-character::before {
+  content: '';
+  position: absolute;
+  inset: 10%;
+  background: radial-gradient(circle at 50% 50%, var(--active-glow) 0%, transparent 65%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.hero-character model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-character-caption {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-5);
+  background: var(--frost-1);
+  backdrop-filter: blur(20px);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--ring-2);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.hero-character-caption-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--ink-pure);
+}
+
+.hero-character-caption-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-400);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THREAT (CVE stats)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.threat { background: var(--bg-canvas); }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+}
+
+@media (max-width: 980px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .stat-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  padding: var(--s-7);
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-elevated); }
+
+.stat-card[data-severity="critical"]::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--alert);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink-pure);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card[data-severity="critical"] .stat-number { color: var(--alert); }
+
+.stat-label {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-300);
+}
+
+.stat-label strong { color: var(--ink-100); font-weight: 600; }
+
+.stat-source {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-500);
+  margin-top: auto;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--ring-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ESSENCE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.essence { padding: var(--s-11) 0; }
+
+.essence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-9);
+  align-items: start;
+}
+
+@media (max-width: 980px) { .essence-grid { grid-template-columns: 1fr; gap: var(--s-7); } }
+
+.essence-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.essence-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: var(--s-5) var(--s-6);
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.essence-pill-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--active-soft);
+  color: var(--active);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.essence-pill-icon svg { width: 16px; height: 16px; }
+
+.essence-pill-body strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.015em;
+  color: var(--ink-pure);
+  margin-bottom: 4px;
+}
+
+.essence-pill-body p {
+  font-size: 14px;
+  color: var(--ink-300);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ARCHITECTURE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.architecture {
+  background: var(--bg-canvas);
+  position: relative;
+}
+
+.architecture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 40% at 50% 100%, var(--active-soft) 0%, transparent 65%);
+  opacity: 0.5;
+}
+
+.arch-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-7);
+  margin: var(--s-7) auto var(--s-8);
+  flex-wrap: wrap;
+}
+
+.arch-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border-radius: var(--r-pill);
+  box-shadow: 0 0 0 1px var(--ring-1);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-200);
+}
+
+.arch-meta-pill strong { color: var(--ink-pure); font-weight: 600; }
+
+.bot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+}
+
+@media (max-width: 980px) { .bot-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .bot-grid { grid-template-columns: 1fr; } }
+
+.bot-card {
+  padding: var(--s-6) var(--s-5) var(--s-7);
+  border-radius: var(--r-xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  position: relative;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.bot-card:hover { transform: translateY(-3px); }
+
+.bot-card[data-bot="persona"]:hover  { box-shadow: 0 0 0 1px rgba(94,173,255,0.4),  inset 0 1px 0 0 rgba(255,255,255,0.04), 0 32px 64px -24px rgba(94,173,255,0.18); }
+.bot-card[data-bot="skills"]:hover   { box-shadow: 0 0 0 1px rgba(52,216,154,0.4),  inset 0 1px 0 0 rgba(255,255,255,0.04), 0 32px 64px -24px rgba(52,216,154,0.18); }
+.bot-card[data-bot="runtime"]:hover  { box-shadow: 0 0 0 1px rgba(255,107,111,0.4), inset 0 1px 0 0 rgba(255,255,255,0.04), 0 32px 64px -24px rgba(255,107,111,0.18); }
+.bot-card[data-bot="guardian"]:hover { box-shadow: 0 0 0 1px rgba(255,183,77,0.4),  inset 0 1px 0 0 rgba(255,255,255,0.04), 0 32px 64px -24px rgba(255,183,77,0.18); }
+
+.bot-character {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-lg);
+  background: var(--bg-canvas);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s-3);
+}
+
+.bot-character::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  filter: blur(36px);
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.bot-card[data-bot="persona"]  .bot-character::before { background: radial-gradient(circle, var(--crystal-glow), transparent 70%); }
+.bot-card[data-bot="skills"]   .bot-character::before { background: radial-gradient(circle, var(--emerald-glow), transparent 70%); }
+.bot-card[data-bot="runtime"]  .bot-character::before { background: radial-gradient(circle, var(--ruby-glow), transparent 70%); }
+.bot-card[data-bot="guardian"] .bot-character::before { background: radial-gradient(circle, var(--gold-glow), transparent 70%); }
+
+.bot-character model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.bot-tag {
+  position: absolute;
+  top: var(--s-3);
+  left: var(--s-3);
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.bot-card[data-bot="persona"]  .bot-tag { color: var(--crystal);  border: 1px solid rgba(94,173,255,0.35); }
+.bot-card[data-bot="skills"]   .bot-tag { color: var(--emerald);  border: 1px solid rgba(52,216,154,0.35); }
+.bot-card[data-bot="runtime"]  .bot-tag { color: var(--ruby);     border: 1px solid rgba(255,107,111,0.35); }
+.bot-card[data-bot="guardian"] .bot-tag { color: var(--gold);     border: 1px solid rgba(255,183,77,0.35); }
+
+.bot-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  color: var(--ink-pure);
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.bot-internal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+.bot-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-200);
+  letter-spacing: -0.005em;
+}
+
+.bot-card[data-bot="persona"]  .bot-tagline { color: var(--crystal); }
+.bot-card[data-bot="skills"]   .bot-tagline { color: var(--emerald); }
+.bot-card[data-bot="runtime"]  .bot-tagline { color: var(--ruby); }
+.bot-card[data-bot="guardian"] .bot-tagline { color: var(--gold); }
+
+.bot-description {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-300);
+}
+
+.bot-stack {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--ring-1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bot-stack-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.bot-stack-row dt {
+  color: var(--ink-500);
+  text-transform: uppercase;
+}
+
+.bot-stack-row dd {
+  color: var(--ink-200);
+  text-align: right;
+}
+
+.bot-card[data-bot="persona"]  .bot-stack-row dd { color: var(--crystal); }
+.bot-card[data-bot="skills"]   .bot-stack-row dd { color: var(--emerald); }
+.bot-card[data-bot="runtime"]  .bot-stack-row dd { color: var(--ruby); }
+.bot-card[data-bot="guardian"] .bot-stack-row dd { color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FLOW
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.flow-wrap {
+  margin-top: var(--s-8);
+  padding: var(--s-8);
+  border-radius: var(--r-2xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: var(--s-3);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+@media (max-width: 880px) {
+  .flow-diagram { grid-template-columns: 1fr; }
+  .flow-arrow { transform: rotate(90deg); justify-self: center; }
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-5) var(--s-3);
+  border-radius: var(--r-lg);
+  background: var(--bg-canvas);
+  box-shadow: 0 0 0 1px var(--ring-1);
+  text-align: center;
+  position: relative;
+}
+
+.flow-node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--frost-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-200);
+}
+
+.flow-node-icon svg { width: 22px; height: 22px; }
+
+.flow-node-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: var(--ink-pure);
+}
+
+.flow-node-desc {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-400);
+}
+
+.flow-node.guardian {
+  background: var(--gold-soft);
+  box-shadow: 0 0 0 1px rgba(255,183,77,0.3), 0 0 32px -8px rgba(255,183,77,0.25);
+}
+.flow-node.guardian .flow-node-icon { background: rgba(255,183,77,0.2); color: var(--gold); }
+.flow-node.guardian .flow-node-name { color: var(--gold); }
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--ink-500);
+}
+.flow-arrow svg { width: 24px; height: 24px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TERMINAL
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.terminal-section { padding: var(--s-10) 0; }
+
+.terminal-frame {
+  border-radius: var(--r-lg);
+  background: #0d0d0d;
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 10px 14px;
+  background: #181818;
+  border-bottom: 1px solid var(--ring-1);
+}
+
+.terminal-dots { display: flex; gap: 6px; }
+.terminal-dots span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+.terminal-title {
+  flex: 1;
+  font-size: 11px;
+  color: var(--ink-400);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.terminal-body {
+  padding: var(--s-5);
+  height: 360px;
+  overflow-y: auto;
+  font-size: 12.5px;
+}
+
+.terminal-body::-webkit-scrollbar { width: 6px; }
+.terminal-body::-webkit-scrollbar-track { background: transparent; }
+.terminal-body::-webkit-scrollbar-thumb { background: var(--frost-2); border-radius: 3px; }
+
+.t-line { display: flex; gap: var(--s-3); margin-bottom: 6px; }
+.t-detail { color: var(--ink-500); padding-left: var(--s-7); margin-bottom: 6px; font-size: 11.5px; }
+.t-ts { color: var(--ink-500); flex-shrink: 0; }
+.t-info    { color: var(--ink-200); }
+.t-ok      { color: var(--ok); }
+.t-warn    { color: var(--warn); }
+.t-blocked { color: var(--alert); font-weight: 500; }
+.t-persona { color: var(--crystal); }
+
+.t-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--active);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.terminal-legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-6);
+  margin-top: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+  flex-wrap: wrap;
+}
+
+.terminal-legend span { display: inline-flex; align-items: center; gap: var(--s-2); }
+
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot-info    { background: var(--ink-300); }
+.dot-ok      { background: var(--ok); }
+.dot-warn    { background: var(--warn); }
+.dot-blocked { background: var(--alert); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TEMPLATES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.templates { background: var(--bg-canvas); }
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+}
+
+@media (max-width: 980px) { .templates-grid { grid-template-columns: 1fr; } }
+
+.template-card {
+  padding: var(--s-7);
+  border-radius: var(--r-xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  transition: transform var(--dur) var(--ease);
+}
+
+.template-card:hover { transform: translateY(-3px); }
+
+.template-header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.template-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--frost-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ink-200);
+}
+
+.template-card[data-gem="crystal"] .template-icon { background: var(--crystal-soft); color: var(--crystal); }
+.template-card[data-gem="emerald"] .template-icon { background: var(--emerald-soft); color: var(--emerald); }
+.template-card[data-gem="ruby"]    .template-icon { background: var(--ruby-soft); color: var(--ruby); }
+
+.template-icon svg { width: 20px; height: 20px; }
+
+.template-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.template-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-200);
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+
+.template-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.template-section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-400);
+}
+
+.template-section ul li {
+  font-size: 13.5px;
+  color: var(--ink-300);
+  padding-left: var(--s-4);
+  position: relative;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.template-section ul li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--active);
+}
+
+.template-card[data-gem="crystal"] .template-section ul li::before { color: var(--crystal); }
+.template-card[data-gem="emerald"] .template-section ul li::before { color: var(--emerald); }
+.template-card[data-gem="ruby"]    .template-section ul li::before { color: var(--ruby); }
+
+.skill-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--frost-1);
+  color: var(--ink-200);
+  letter-spacing: 0.02em;
+}
+
+.template-cta {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-pure);
+  border: 0;
+  box-shadow: 0 0 0 1px var(--ring-2);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--dur) var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+}
+
+.template-cta:hover { background: var(--frost-2); }
+.template-cta:active { transform: scale(0.97); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   INSTALL
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+@media (max-width: 980px) { .install-grid { grid-template-columns: 1fr; gap: var(--s-7); } }
+
+.install-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.install-step {
+  display: flex;
+  gap: var(--s-4);
+  align-items: flex-start;
+}
+
+.install-step-number {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--active-soft);
+  color: var(--active);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--ring-2);
+}
+
+.install-step h4 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+  color: var(--ink-pure);
+}
+
+.install-step p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-300);
+}
+
+.code-block {
+  border-radius: var(--r-lg);
+  background: #0d0d0d;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: #181818;
+  border-bottom: 1px solid var(--ring-1);
+}
+
+.code-block-tab {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-400);
+}
+
+.code-block-copy {
+  background: transparent;
+  border: 1px solid var(--ring-2);
+  color: var(--ink-300);
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  font-size: 11px;
+  font-weight: 500;
+  transition: all var(--dur) var(--ease);
+}
+
+.code-block-copy:hover { color: var(--ink-pure); border-color: var(--ring-3); }
+
+.code-block pre {
+  margin: 0;
+  padding: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink-200);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.c-comment { color: var(--ink-500); }
+.c-prompt  { color: var(--active); }
+.c-arrow   { color: var(--ink-400); }
+.c-string  { color: var(--crystal); }
+.c-value   { color: var(--gold); }
+.c-ok      { color: var(--ok); }
+
+.code-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 13px;
+  background: var(--active);
+  vertical-align: -2px;
+  animation: blink 1s steps(2) infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RECEIPT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.receipt { background: var(--bg-canvas); }
+
+.receipt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-9);
+  align-items: center;
+}
+
+@media (max-width: 980px) { .receipt-grid { grid-template-columns: 1fr; } }
+
+.receipt-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.receipt-copy h2 { margin-top: var(--s-3); }
+.receipt-copy p { font-size: 17px; line-height: 1.55; color: var(--ink-300); }
+
+.receipt-card {
+  padding: var(--s-6);
+  border-radius: var(--r-xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  position: relative;
+}
+
+.receipt-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%; width: 3px;
+  background: var(--alert);
+  border-radius: var(--r-xl) 0 0 var(--r-xl);
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.receipt-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.015em;
+  color: var(--ink-pure);
+}
+
+.receipt-title svg { color: var(--alert); width: 14px; height: 14px; }
+
+.receipt-timestamp {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-500);
+}
+
+.receipt-card dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.receipt-row {
+  display: flex;
+  gap: var(--s-3);
+  font-size: 13.5px;
+  font-family: var(--font-mono);
+  letter-spacing: -0.005em;
+}
+
+.receipt-row dt {
+  color: var(--ink-500);
+  flex: 0 0 80px;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  padding-top: 2px;
+}
+
+.receipt-row dd { color: var(--ink-200); flex: 1; word-break: break-word; }
+.receipt-row.blocked dd { color: var(--alert); font-weight: 600; }
+
+.receipt-actions {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+.receipt-action {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  background: var(--frost-1);
+  color: var(--ink-pure);
+  border: 0;
+  box-shadow: 0 0 0 1px var(--ring-2);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--dur) var(--ease);
+}
+
+.receipt-action:hover { background: var(--frost-3); }
+.receipt-action.primary { background: var(--ink-pure); color: var(--ink-dark); box-shadow: 0 0 0 1px var(--ring-3); }
+.receipt-action.primary:hover { background: var(--accent-bright); color: #fff; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOUNDER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.founder { padding: var(--s-11) 0; }
+
+.founder-letter {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: var(--s-9);
+  border-radius: var(--r-2xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.founder-letter h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.04em;
+}
+
+.founder-lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.4;
+  color: var(--ink-100);
+  letter-spacing: -0.01em;
+  border-left: 3px solid var(--active);
+  padding-left: var(--s-5);
+}
+
+.founder-letter p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-200);
+}
+
+.founder-letter p strong { color: var(--ink-pure); font-weight: 600; }
+
+.founder-sig {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--ring-1);
+}
+
+.founder-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-canvas);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.founder-avatar model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+.founder-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.015em;
+  color: var(--ink-pure);
+}
+
+.founder-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-400);
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FAQ
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.faq { background: var(--bg-canvas); }
+
+.faq-grid {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.faq-item {
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.faq-item[open] { box-shadow: var(--shadow-elevated); }
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--s-5) var(--s-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-3);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -0.018em;
+  color: var(--ink-pure);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--ink-400);
+  transition: transform var(--dur) var(--ease);
+  flex-shrink: 0;
+  margin-left: var(--s-4);
+}
+
+.faq-item[open] summary::after { content: '−'; color: var(--active); }
+
+.faq-answer {
+  padding: 0 var(--s-6) var(--s-5);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-300);
+}
+
+.faq-answer code { font-size: 0.93em; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PRICING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+@media (max-width: 880px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.price-card {
+  padding: var(--s-7);
+  border-radius: var(--r-xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  position: relative;
+}
+
+.price-card.featured {
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
+  box-shadow: 0 0 0 1px var(--active), inset 0 1px 0 0 rgba(255,255,255,0.08), 0 32px 64px -24px var(--active-glow);
+}
+
+.price-tier-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-400);
+}
+
+.price-card.featured .price-tier-tag { color: var(--active); }
+
+.price-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  color: var(--ink-pure);
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink-pure);
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-amount-currency { font-size: 24px; color: var(--ink-300); font-weight: 500; }
+.price-amount-period { font-size: 14px; color: var(--ink-400); font-weight: 400; letter-spacing: 0; }
+
+.price-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  font-size: 13.5px;
+  color: var(--ink-300);
+}
+
+.price-features li {
+  display: flex;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+
+.price-features li::before {
+  content: '✓';
+  color: var(--ok);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WAITLIST
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.waitlist {
+  padding: var(--s-11) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.waitlist::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--active-soft) 0%, transparent 65%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.waitlist-inner {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  align-items: center;
+  z-index: 1;
+}
+
+.waitlist-form {
+  display: flex;
+  gap: var(--s-3);
+  width: 100%;
+  max-width: 520px;
+  margin-top: var(--s-3);
+}
+
+@media (max-width: 540px) { .waitlist-form { flex-direction: column; } }
+
+.waitlist-input {
+  flex: 1;
+  padding: 14px 22px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  color: var(--ink-pure);
+  border: 0;
+  box-shadow: 0 0 0 1px var(--ring-2);
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: -0.011em;
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.waitlist-input::placeholder { color: var(--ink-500); }
+.waitlist-input:focus { outline: none; box-shadow: 0 0 0 2px var(--active); }
+
+.waitlist-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-400);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+footer {
+  border-top: 1px solid var(--ring-1);
+  padding: var(--s-7) 0;
+  background: var(--bg-canvas);
+}
+
+.footer-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+}
+
+.footer-brand { display: flex; align-items: center; gap: var(--s-3); }
+
+.footer-brand model-viewer {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-500);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--s-5);
+  font-size: 13px;
+  color: var(--ink-300);
+  flex-wrap: wrap;
+}
+
+.footer-links a:hover { color: var(--ink-pure); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.nav-burger-floating {
+  display: none;
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--ring-2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+
+.nav-burger-floating span {
+  width: 16px;
+  height: 1.5px;
+  background: var(--ink-pure);
+  border-radius: 1px;
+  transition: all var(--dur) var(--ease);
+}
+
+.nav-burger-floating[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav-burger-floating[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger-floating[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.96);
+  backdrop-filter: blur(30px);
+  z-index: 90;
+  flex-direction: column;
+  padding: var(--s-10) var(--s-7);
+  gap: var(--s-3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.mobile-nav.open { opacity: 1; pointer-events: auto; }
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--ink-pure);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--ring-1);
+}
+
+.mobile-nav-controls {
+  margin-top: auto;
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  padding-top: var(--s-7);
+  border-top: 1px solid var(--ring-1);
+}
+
+@media (max-width: 880px) {
+  .nav-tabs, .nav-right .gem-switcher, .nav-right .theme-toggle { display: none; }
+  .top-nav .btn { display: none; }
+  .nav-burger-floating { display: flex; }
+  .mobile-nav { display: flex; }
+}
+
+body.mobile-nav-open { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="top-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <model-viewer
+        src="./TRIBOT_LOGO.glb" alt="TRIBOT logo"
+        disable-zoom disable-pan disable-tap interaction-prompt="none"
+        shadow-intensity="0" exposure="1.25" environment-image="neutral" loading="eager"
+        camera-orbit="0deg 90deg 100%" min-camera-orbit="auto auto 100%" max-camera-orbit="auto auto 100%"
+        style="pointer-events: none;"></model-viewer>
+      <span class="nav-brand-wordmark">TRIBOT</span>
+      <span class="nav-status-pill"><span class="nav-status-dot"></span>Pre-launch</span>
+    </a>
+    <div class="nav-tabs">
+      <a href="#threat" class="nav-tab">Threat</a>
+      <a href="#essence" class="nav-tab">How it works</a>
+      <a href="#architecture" class="nav-tab">Architecture</a>
+      <a href="#templates" class="nav-tab">Templates</a>
+      <a href="#pricing" class="nav-tab">Pricing</a>
+      <a href="#faq" class="nav-tab">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <div class="gem-switcher" role="radiogroup" aria-label="Accent gem">
+        <button class="gem-chip" data-gem="crystal" aria-label="Crystal" aria-pressed="true" title="Crystal" type="button"></button>
+        <button class="gem-chip" data-gem="emerald" aria-label="Emerald" aria-pressed="false" title="Emerald" type="button"></button>
+        <button class="gem-chip" data-gem="ruby" aria-label="Ruby" aria-pressed="false" title="Ruby" type="button"></button>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme" type="button">
+        <svg class="sun" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.25"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.4 1.4M11.55 11.55l1.4 1.4M3.05 12.95l1.4-1.4M11.55 4.45l1.4-1.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+        <svg class="moon" width="14" height="14" viewBox="0 0 16 16" fill="none" style="display:none;"><path d="M13 9.5A5.5 5.5 0 017 3a5 5 0 000 10 5.5 5.5 0 006-3.5z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn btn-primary" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Join waitlist</button>
+    </div>
+  </div>
+</nav>
+
+<button id="nav-burger" class="nav-burger-floating" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" type="button">
+  <span></span><span></span><span></span>
+</button>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="#threat" class="mobile-nav-link">Threat</a>
+  <a href="#essence" class="mobile-nav-link">How it works</a>
+  <a href="#architecture" class="mobile-nav-link">Architecture</a>
+  <a href="#templates" class="mobile-nav-link">Templates</a>
+  <a href="#pricing" class="mobile-nav-link">Pricing</a>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+  <div class="mobile-nav-controls">
+    <div class="gem-switcher" role="radiogroup">
+      <button class="gem-chip" data-gem="crystal" aria-pressed="true" type="button"></button>
+      <button class="gem-chip" data-gem="emerald" aria-pressed="false" type="button"></button>
+      <button class="gem-chip" data-gem="ruby" aria-pressed="false" type="button"></button>
+    </div>
+    <button class="theme-toggle" type="button">
+      <svg class="sun" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.25"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.4 1.4M11.55 11.55l1.4 1.4M3.05 12.95l1.4-1.4M11.55 4.45l1.4-1.4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+      <svg class="moon" width="14" height="14" viewBox="0 0 16 16" fill="none" style="display:none;"><path d="M13 9.5A5.5 5.5 0 017 3a5 5 0 000 10 5.5 5.5 0 006-3.5z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Little Snitch · for AI agents</span>
+      <h1>Your agent acts.<br/><em>You decide.</em></h1>
+      <p class="hero-lede">
+        TRIBOT is a 100% local desktop sentinel that learns your AI agent's behavior over seven days, then watches every tool call with <strong>three independent supervisors</strong> &mdash; Persona, Skills, Runtime &mdash; reporting live to a <strong>Master</strong> that <strong>asks you</strong> before executing anything anomalous.
+      </p>
+      <div class="hero-cta-group">
+        <button class="btn btn-accent" type="button" onclick="document.getElementById('waitlist-email')?.focus()">
+          Join the waitlist
+          <svg class="btn-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-3-3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn btn-ghost" type="button" onclick="document.getElementById('demo')?.scrollIntoView({behavior:'smooth',block:'start'})">
+          <svg class="btn-icon" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="0.5" stroke="currentColor" stroke-width="1.25"/><path d="M5 7h6M5 9.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+          See a live session
+        </button>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>100% local · no telemetry</span>
+        <span class="trust-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>~280ms latency budget</span>
+        <span class="trust-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Tamper-evident audit chain</span>
+      </div>
+    </div>
+    <div class="hero-character">
+      <model-viewer
+        src="./BOSS_BOT_3D.glb" alt="Guardian — the security kernel"
+        disable-zoom disable-pan disable-tap interaction-prompt="none"
+        shadow-intensity="0" exposure="1.2" environment-image="neutral" loading="eager"
+        camera-orbit="0deg 82deg 180%" min-camera-orbit="0deg 82deg 180%" max-camera-orbit="0deg 82deg 180%"></model-viewer>
+      <div class="hero-character-caption">
+        <div class="hero-character-caption-title">Guardian · Master</div>
+        <div class="hero-character-caption-sub">Only bot that executes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREAT -->
+<section class="threat" id="threat">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>The threat surface, today</span>
+      <h2>Agents act <em>without asking.</em></h2>
+      <p class="lede">The same AI that drafts your email can delete your files, send them to the wrong address, or follow a hidden instruction buried in an inbox. EDR was built for human behavior &mdash; an agent that runs code perfectly ten thousand times looks normal to it.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card" data-severity="critical">
+        <div class="stat-number">9.6</div>
+        <p class="stat-label"><strong>CVE-2025-53773</strong> &mdash; prompt-injection RCE in GitHub Copilot. 100K+ developer machines exposed.</p>
+        <span class="stat-source">CVSS · Critical</span>
+      </div>
+      <div class="stat-card" data-severity="critical">
+        <div class="stat-number">9.3</div>
+        <p class="stat-label"><strong>CVE-2025-32711 "EchoLeak"</strong> &mdash; zero-click email in M365 Copilot exfils OneDrive, SharePoint, Teams.</p>
+        <span class="stat-source">CVSS · Critical</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">+340%</div>
+        <p class="stat-label">YoY rise in prompt-injection attempts during Q4 2025.</p>
+        <span class="stat-source">Wiz Research</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">88%</div>
+        <p class="stat-label">Of enterprises reported an AI-related security incident in 2026.</p>
+        <span class="stat-source">StellarCyber · 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESSENCE -->
+<section class="essence" id="essence">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>What TRIBOT is</span>
+      <h2>Not a rulebook. <em>A learner.</em></h2>
+      <p class="lede">Generic policy engines check every call against the same static list. TRIBOT spends seven days learning <em>your specific agent's</em> rolling behavioral baseline &mdash; tool, args, sequence &mdash; and then flags drift. An agent that suddenly calls <code>delete_file</code> at 3am is a signal, even if "delete_file" was technically allowed.</p>
+    </div>
+    <div class="essence-grid">
+      <div class="essence-pill-list">
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.5-3.5 5-6 9-6s7.5 2.5 9 6c-1.5 3.5-5 6-9 6s-7.5-2.5-9-6z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>Three independent angles, not one.</strong>
+            <p>Every tool call is judged simultaneously by Persona (in-character?), Skills (capability allowed?), and Runtime (destination safe?). A single-policy proxy can't see what three independent eyes see.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>Master never acts alone.</strong>
+            <p>Three verdicts arrive at the Master. It synthesizes, but never autonomously executes a contested call. When the supervisors disagree, Master surfaces the conflict to <em>you</em>. The kill switch was never the agent's; it always belonged to the human at the keyboard.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.5-7.1"/><path d="M21 4v4.5h-4.5"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>Your agent's baseline is yours alone.</strong>
+            <p>Seven days of rolling histograms (tool × args-shape × sequence) build a fingerprint that lives only on your machine. Drift detection compares <em>your</em> agent against <em>itself</em> &mdash; not against a generic OWASP rule.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>One hundred percent local.</strong>
+            <p>No cloud control plane. No telemetry. SQLCipher with the key in your OS keyring. If the company disappears tomorrow, your installation keeps running, your audit chain stays verifiable offline, and your data never left your laptop.</p>
+          </div>
+        </div>
+      </div>
+      <div class="essence-pill-list">
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><circle cx="7" cy="17" r="0.6" fill="currentColor"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>Hash-chained audit, byte-level tamper detection.</strong>
+            <p>Every verdict and decision is appended to an HMAC-SHA256 chain. Flip one byte in the past and <code>tribot verify-chain</code> fails at the exact row &mdash; offline, on your machine. You will know.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>~280ms latency budget, end-to-end.</strong>
+            <p>Soul 50ms + Skills 10ms + Connection 200ms + Master 20ms. Comfortably inside Nielsen's 1-second flow threshold &mdash; with room for a Haiku tie-breaker on contested calls.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>Defends against the realistic threats, names them.</strong>
+            <p>Prompt injection via pasted or fetched content. Memory poisoning. Malicious MCP installs. Local data theft. Outbound exfiltration. We don't claim SOC2 or nation-state coverage &mdash; we ship what you can verify.</p>
+          </div>
+        </div>
+        <div class="essence-pill">
+          <span class="essence-pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h12"/></svg></span>
+          <div class="essence-pill-body">
+            <strong>One-click install. Built for non-developers.</strong>
+            <p>Microsoft AGT and Veto.so are SDKs &mdash; engineers must wire them in. TRIBOT is a Tauri-signed desktop app. Double-click, point at your agent, pick a Persona. Five minutes from download to baseline-learning mode.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="architecture" id="architecture">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Architecture</span>
+      <h2>Three watchers. <em>One Master.</em></h2>
+      <p class="lede">Each supervisor is a separate process with a different research-validated technique. They never collapse into a single policy check. Master synthesizes, but only <strong>you</strong> approve.</p>
+    </div>
+    <div class="arch-meta">
+      <span class="arch-meta-pill"><strong>~280ms</strong> · end-to-end latency budget</span>
+      <span class="arch-meta-pill"><strong>3 verdicts</strong> · per tool call, parallel</span>
+      <span class="arch-meta-pill"><strong>Append-only</strong> · HMAC-SHA256 audit chain</span>
+    </div>
+
+    <div class="bot-grid">
+      <article class="bot-card" data-bot="persona">
+        <div class="bot-character">
+          <span class="bot-tag">Crystal</span>
+          <model-viewer src="./BOT_CRYSTAL_3D.glb" alt="Persona — Crystal supervisor"
+            disable-zoom disable-pan disable-tap interaction-prompt="none"
+            shadow-intensity="0" exposure="1.15" environment-image="neutral" loading="eager"
+            camera-orbit="0deg 85deg 115%" min-camera-orbit="0deg 85deg 115%" max-camera-orbit="0deg 85deg 115%"></model-viewer>
+        </div>
+        <div class="bot-name">Persona <span class="bot-internal">Soul</span></div>
+        <p class="bot-tagline">Is this in character?</p>
+        <p class="bot-description">Contextual policy + LLM-judge against a Markdown persona manifest. An "inbox triager" that suddenly tries to send email is out of character &mdash; flagged.</p>
+        <dl class="bot-stack">
+          <div class="bot-stack-row"><dt>Method</dt><dd>PSG-Agent</dd></div>
+          <div class="bot-stack-row"><dt>Latency</dt><dd>~50ms</dd></div>
+          <div class="bot-stack-row"><dt>Status</dt><dd>Spike: working</dd></div>
+          <div class="bot-stack-row"><dt>Source</dt><dd>arXiv 2509.23614</dd></div>
+        </dl>
+      </article>
+
+      <article class="bot-card" data-bot="skills">
+        <div class="bot-character">
+          <span class="bot-tag">Emerald</span>
+          <model-viewer src="./BOT_EMRAL_3D.glb" alt="Skills — Emerald supervisor"
+            disable-zoom disable-pan disable-tap interaction-prompt="none"
+            shadow-intensity="0" exposure="1.15" environment-image="neutral" loading="eager"
+            camera-orbit="0deg 85deg 115%" min-camera-orbit="0deg 85deg 115%" max-camera-orbit="0deg 85deg 115%"></model-viewer>
+        </div>
+        <div class="bot-name">Skills <span class="bot-internal">Skills</span></div>
+        <p class="bot-tagline">Is this on baseline?</p>
+        <p class="bot-description">UEBA statistical baseline over a rolling 7-day window of <code>tool × args-shape × sequence</code>. Detects intent drift &mdash; the agent doing what it's allowed to do, just at the wrong time.</p>
+        <dl class="bot-stack">
+          <div class="bot-stack-row"><dt>Method</dt><dd>UEBA + Welford</dd></div>
+          <div class="bot-stack-row"><dt>Latency</dt><dd>~10ms</dd></div>
+          <div class="bot-stack-row"><dt>Status</dt><dd>Spike: working · 7-day baseline W2-W3</dd></div>
+          <div class="bot-stack-row"><dt>Source</dt><dd>ARMO Intent Drift</dd></div>
+        </dl>
+      </article>
+
+      <article class="bot-card" data-bot="runtime">
+        <div class="bot-character">
+          <span class="bot-tag">Ruby</span>
+          <model-viewer src="./BOT_RUBY_3D.glb" alt="Runtime — Ruby supervisor"
+            disable-zoom disable-pan disable-tap interaction-prompt="none"
+            shadow-intensity="0" exposure="1.15" environment-image="neutral" loading="eager"
+            camera-orbit="0deg 85deg 115%" min-camera-orbit="0deg 85deg 115%" max-camera-orbit="0deg 85deg 115%"></model-viewer>
+        </div>
+        <div class="bot-name">Runtime <span class="bot-internal">Connection</span></div>
+        <p class="bot-tagline">Is the destination safe?</p>
+        <p class="bot-description">DeBERTa prompt-injection classifier on every I/O across trust boundaries. Catches Cyrillic homoglyph payloads, hidden markdown exfil, and zero-click email injections like EchoLeak.</p>
+        <dl class="bot-stack">
+          <div class="bot-stack-row"><dt>Method</dt><dd>Lakera PINT 97.7%</dd></div>
+          <div class="bot-stack-row"><dt>Latency</dt><dd>~200ms</dd></div>
+          <div class="bot-stack-row"><dt>Status</dt><dd>Keyword fallback · DeBERTa lands W1</dd></div>
+          <div class="bot-stack-row"><dt>Source</dt><dd>Lakera Research</dd></div>
+        </dl>
+      </article>
+
+      <article class="bot-card" data-bot="guardian">
+        <div class="bot-character">
+          <span class="bot-tag">Gold</span>
+          <model-viewer src="./BOSS_BOT_3D.glb" alt="Guardian — Master executor"
+            disable-zoom disable-pan disable-tap interaction-prompt="none"
+            shadow-intensity="0" exposure="1.2" environment-image="neutral" loading="eager"
+            camera-orbit="0deg 85deg 115%" min-camera-orbit="0deg 85deg 115%" max-camera-orbit="0deg 85deg 115%"></model-viewer>
+        </div>
+        <div class="bot-name">Guardian <span class="bot-internal">Master</span></div>
+        <p class="bot-tagline">Should this happen at all?</p>
+        <p class="bot-description">Agent-as-judge voting + Haiku tie-breaker. The only bot that can execute. Deny-on-disagree by default. Every contested call surfaces to the human &mdash; never silently auto-resolved.</p>
+        <dl class="bot-stack">
+          <div class="bot-stack-row"><dt>Method</dt><dd>CourtGuard voting</dd></div>
+          <div class="bot-stack-row"><dt>Latency</dt><dd>~20ms</dd></div>
+          <div class="bot-stack-row"><dt>Status</dt><dd>Spike: working · fail-CLOSED in Phase 0</dd></div>
+          <div class="bot-stack-row"><dt>Source</dt><dd>arXiv 2510.19844</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="flow-wrap">
+      <div class="flow-diagram">
+        <div class="flow-node">
+          <div class="flow-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-3.5 4-5.5 7-5.5s6 2 7 5.5"/></svg></div>
+          <div class="flow-node-name">You</div>
+          <div class="flow-node-desc">Intent</div>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-3-3l3 3-3 3"/></svg></div>
+        <div class="flow-node">
+          <div class="flow-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><circle cx="9" cy="13" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="0.8" fill="currentColor" stroke="none"/><path d="M9 17h6"/></svg></div>
+          <div class="flow-node-name">Agent</div>
+          <div class="flow-node-desc">Tool call</div>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-3-3l3 3-3 3"/></svg></div>
+        <div class="flow-node">
+          <div class="flow-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/></svg></div>
+          <div class="flow-node-name">3 supervisors</div>
+          <div class="flow-node-desc">Verdicts</div>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-3-3l3 3-3 3"/></svg></div>
+        <div class="flow-node guardian">
+          <div class="flow-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 3.5-3 7-7 8-4-1-7-4.5-7-8V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="flow-node-name">Master</div>
+          <div class="flow-node-desc">Allow · Ask · Deny</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<section class="terminal-section" id="demo">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Live session</span>
+      <h2>What it looks like, <em>running.</em></h2>
+      <p class="lede">A real <code>tribot-watch</code> stream &mdash; every tool call judged by three supervisors, every decision logged to the tamper-evident chain.</p>
+    </div>
+    <div class="terminal-frame" aria-label="Terminal demo">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span style="background:#FF5F57"></span>
+          <span style="background:#FFBD2E"></span>
+          <span style="background:#28C941"></span>
+        </div>
+        <div class="terminal-title">tribot-watch · ~/projects/inbox-agent · session a7c41e</div>
+      </div>
+      <div class="terminal-body" id="terminal-body" role="log" aria-live="polite"></div>
+    </div>
+    <div class="terminal-legend" aria-hidden="true">
+      <span><span class="dot dot-info"></span>info</span>
+      <span><span class="dot dot-ok"></span>tool ran</span>
+      <span><span class="dot dot-warn"></span>warning</span>
+      <span><span class="dot dot-blocked"></span>blocked by Master</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="templates" id="templates">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Templates · v0.1 starter packs</span>
+      <h2>Three TRIBOTs, <em>ready to fork.</em></h2>
+      <p class="lede">One per gem. Each pack ships with a Persona manifest, Skills allowlist, and Master rules tuned for a real workflow. v0.1 ships with Inbox Triage; Research Assistant and Code Reviewer follow at GA.</p>
+    </div>
+    <div class="templates-grid">
+      <article class="template-card" data-gem="crystal">
+        <div class="template-header">
+          <span class="template-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <h3>Inbox Triage</h3>
+        </div>
+        <p class="template-tagline">Reads your email, labels what matters, archives what doesn't. Never drafts or sends without your confirm.</p>
+        <div class="template-section">
+          <div class="template-section-label">Persona</div>
+          <ul>
+            <li>Terse, no-nonsense voice</li>
+            <li>Never drafts replies without confirm</li>
+            <li>Ignores automated senders unless VIP-tagged</li>
+          </ul>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Skills</div>
+          <div class="skill-pills">
+            <span class="skill-pill">gmail.read</span>
+            <span class="skill-pill">gmail.label</span>
+            <span class="skill-pill">gmail.archive</span>
+          </div>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Master rules</div>
+          <ul>
+            <li><code>send_email</code> blocked by default</li>
+            <li>No external forwards, ever</li>
+            <li>Urgent tags escalate within 30s</li>
+          </ul>
+        </div>
+        <button class="template-cta" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve this template</button>
+      </article>
+
+      <article class="template-card" data-gem="emerald">
+        <div class="template-header">
+          <span class="template-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5.5-5.5"/></svg></span>
+          <h3>Research Assistant</h3>
+        </div>
+        <p class="template-tagline">Searches the web, cites sources, drafts notes in Notion. Refuses to speculate past the data.</p>
+        <div class="template-section">
+          <div class="template-section-label">Persona</div>
+          <ul>
+            <li>Thoughtful, cites every claim</li>
+            <li>Refuses speculation beyond sources</li>
+            <li>Flags uncertainty explicitly</li>
+          </ul>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Skills</div>
+          <div class="skill-pills">
+            <span class="skill-pill">web.search</span>
+            <span class="skill-pill">web.fetch</span>
+            <span class="skill-pill">notion.write</span>
+            <span class="skill-pill">arxiv.read</span>
+          </div>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Master rules</div>
+          <ul>
+            <li>Never shares unpublished research outward</li>
+            <li>Source-URL allowlist per project</li>
+            <li>Citation chain logged per claim</li>
+          </ul>
+        </div>
+        <button class="template-cta" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve this template</button>
+      </article>
+
+      <article class="template-card" data-gem="ruby">
+        <div class="template-header">
+          <span class="template-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18l-6-6 6-6M16 6l6 6-6 6M14 4l-4 16"/></svg></span>
+          <h3>Code Reviewer</h3>
+        </div>
+        <p class="template-tagline">Reviews your PRs, flags regressions, drafts constructive comments. Never pushes, merges, or closes.</p>
+        <div class="template-section">
+          <div class="template-section-label">Persona</div>
+          <ul>
+            <li>Constructive, specific, no vague "nits"</li>
+            <li>Quotes the exact line being critiqued</li>
+            <li>Suggests code, doesn't demand it</li>
+          </ul>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Skills</div>
+          <div class="skill-pills">
+            <span class="skill-pill">github.read</span>
+            <span class="skill-pill">github.comment</span>
+            <span class="skill-pill">git.diff</span>
+          </div>
+        </div>
+        <div class="template-section">
+          <div class="template-section-label">Master rules</div>
+          <ul>
+            <li>Never pushes to main &mdash; ever</li>
+            <li>Merge requires human confirm</li>
+            <li>No secret-scanning bypass allowed</li>
+          </ul>
+        </div>
+        <button class="template-cta" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve this template</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section id="install">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Get started · GA 2026-11-15</span>
+      <h2>Install in <em>thirty seconds.</em></h2>
+      <p class="lede">When v0.1 ships, one signed binary &mdash; no SDK to wire in, macOS and Windows. <strong>Today:</strong> the spike runs Soul + Skills + Master against a real Claude agent, with EchoLeak detection demos succeeding. Design partners get the sealed alpha via private GitHub release before public GA.</p>
+    </div>
+    <div class="install-grid">
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="install-step-number">1</div>
+          <div>
+            <h4>Download the installer</h4>
+            <p>Tauri 2.0 bundle. Apple Developer ID + SSL.com OV signing land at GA. Pre-launch design partners receive the unsigned alpha via private GitHub release with a documented Gatekeeper bypass step.</p>
+          </div>
+        </div>
+        <div class="install-step">
+          <div class="install-step-number">2</div>
+          <div>
+            <h4>Point it at your agent</h4>
+            <p>Auto-detects local Claude Agent SDK. mTLS over Unix Domain Socket &mdash; no public listener, no DNS rebinding surface.</p>
+          </div>
+        </div>
+        <div class="install-step">
+          <div class="install-step-number">3</div>
+          <div>
+            <h4>Pick a Persona</h4>
+            <p>Fork one of three starter templates or write your own in three lines of YAML. Version-controlled, hot-swappable.</p>
+          </div>
+        </div>
+        <div class="install-step">
+          <div class="install-step-number">4</div>
+          <div>
+            <h4>Watch mode for seven days</h4>
+            <p>Master collects baseline, never blocks. After 7 days &times; 20 sessions, you arm. From then on, every drift surfaces a Receipt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="code-block" aria-label="Installation commands">
+        <div class="code-block-header">
+          <span class="code-block-tab">terminal</span>
+          <button class="code-block-copy" type="button">Copy</button>
+        </div>
+<pre><span class="c-comment"># preview — first-run once v0.1 ships</span>
+<span class="c-prompt">$</span> tribot init
+  <span class="c-arrow">→</span> detected agent at <span class="c-string">agent://local:7411</span>
+  <span class="c-arrow">→</span> mTLS bridge: <span class="c-ok">ok</span>
+  <span class="c-arrow">→</span> baseline: learning…
+
+<span class="c-comment"># normal session — nothing to see</span>
+<span class="c-prompt">$</span> tribot --persona <span class="c-value">inbox-triager</span>
+  <span class="c-arrow">→</span> SOUL  · in-character
+  <span class="c-arrow">→</span> SKILLS · 4 enabled · no drift
+  <span class="c-arrow">→</span> CONN  · gmail.com allowlisted
+  <span class="c-arrow">→</span> audit chain: <span class="c-string">a7c4…</span>
+
+<span class="c-comment"># something weird happens</span>
+<span class="c-prompt">$</span> <span class="c-arrow">→</span> SOUL flagged: send_email — out of character
+  <span class="c-arrow">→</span> MASTER: ask user
+  <span class="c-arrow">→</span> user: block · logged · <span class="code-cursor"></span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECEIPT -->
+<section class="receipt">
+  <div class="page">
+    <div class="receipt-grid">
+      <div class="receipt-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Master caught it</span>
+        <h2>Every block ships<br/>with <em>a receipt.</em></h2>
+        <p>When Master pauses an action, you see exactly what was attempted, which supervisor flagged it, which rule fired, and what you can do next. No technical jargon. No <code>error 0x8007</code>. A human-readable explanation and two buttons: let it through once, or update the rule permanently.</p>
+        <p>Every receipt is cryptographically chained to the one before it. Tamper the past and <code>tribot verify-chain</code> fails at the exact row &mdash; offline, on your machine, without sending a byte anywhere.</p>
+      </div>
+      <div class="receipt-card">
+        <div class="receipt-header">
+          <div class="receipt-title">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2l6 3v4c0 3-2.5 6-6 7-3.5-1-6-4-6-7V5l6-3z" fill="currentColor" opacity=".2"/>
+              <path d="M8 2l6 3v4c0 3-2.5 6-6 7-3.5-1-6-4-6-7V5l6-3z" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6 8.5l1.5 1.5L11 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Master paused this action
+          </div>
+          <span class="receipt-timestamp">2026-04-22T14:37:09Z</span>
+        </div>
+        <dl>
+          <div class="receipt-row"><dt>Skill</dt><dd>gmail.inbox-triage v1.4.2</dd></div>
+          <div class="receipt-row"><dt>Tool call</dt><dd>send_email(to=competitor@other-co.com)</dd></div>
+          <div class="receipt-row blocked"><dt>Status</dt><dd>BLOCKED · scope violation</dd></div>
+          <div class="receipt-row"><dt>Verdicts</dt><dd>Soul: deny · Skills: deny · Connection: flag</dd></div>
+          <div class="receipt-row"><dt>Cause</dt><dd>Content from calendar invite (untrusted) influenced tool-call target domain.</dd></div>
+          <div class="receipt-row"><dt>Chain</dt><dd>…a7c4 → e091</dd></div>
+        </dl>
+        <div class="receipt-actions">
+          <button class="receipt-action" type="button">Let through once</button>
+          <button class="receipt-action primary" type="button">Update rule</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Pricing · live at GA · 2026-11-15</span>
+      <h2>Free actually <em>protects.</em></h2>
+      <p class="lede">No crippled tier. The free version runs the full three-supervisor architecture &mdash; we just gate quality-of-life features behind paid. Today every tier is reservable via waitlist; the first 50 design partners get Solo free for 12 months.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="price-card">
+        <span class="price-tier-tag">Free</span>
+        <span class="price-name">Watch</span>
+        <div class="price-amount"><span class="price-amount-currency">$</span>0<span class="price-amount-period">&nbsp;/ forever</span></div>
+        <ul class="price-features">
+          <li>3-supervisor + Master architecture, full</li>
+          <li>7-day baseline learning</li>
+          <li>HMAC-SHA256 audit chain</li>
+          <li>One concurrent agent session</li>
+          <li>Local-only · no cloud · no telemetry</li>
+        </ul>
+        <button class="btn btn-ghost" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve · waitlist</button>
+      </article>
+      <article class="price-card featured">
+        <span class="price-tier-tag">Annual · Most popular</span>
+        <span class="price-name">Solo</span>
+        <div class="price-amount"><span class="price-amount-currency">$</span>9<span class="price-amount-period">&nbsp;/ mo, billed yearly</span></div>
+        <ul class="price-features">
+          <li>Everything in Watch</li>
+          <li>Unlimited concurrent sessions</li>
+          <li>Receipt export (PDF + signed JSON)</li>
+          <li>Multi-Persona switching</li>
+          <li>Priority email support</li>
+        </ul>
+        <button class="btn btn-accent" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve Solo · waitlist</button>
+      </article>
+      <article class="price-card">
+        <span class="price-tier-tag">Monthly</span>
+        <span class="price-name">Solo</span>
+        <div class="price-amount"><span class="price-amount-currency">$</span>19<span class="price-amount-period">&nbsp;/ mo</span></div>
+        <ul class="price-features">
+          <li>Everything in Watch</li>
+          <li>Unlimited concurrent sessions</li>
+          <li>Receipt export (PDF + signed JSON)</li>
+          <li>Multi-Persona switching</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <button class="btn btn-ghost" type="button" onclick="document.getElementById('waitlist-email')?.focus()">Reserve monthly · waitlist</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="founder-letter">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>From the founder</span>
+    <h2>We're building this because <em>nobody else is.</em></h2>
+    <p class="founder-lede">Agent safety shouldn't be a research paper. It should be a product that ships.</p>
+    <p>I've spent the last year watching AI agents go from a curiosity to something millions of people run on their laptops every day. In early 2026, the first major agent-platform breach proved what happens when agents are addressable from outside their trust boundaries. In March, nine CVEs dropped in four days. Each time, the advice was the same: <em>"be careful."</em></p>
+    <p>Careful doesn't scale. Careful didn't stop those incidents. Careful isn't an architecture.</p>
+    <p>TRIBOT is one primitive that matters and three layers around it. The primitive is <strong>Master</strong> &mdash; a kernel that intercepts, inspects, gates, and records every tool call. The three layers are <strong>Persona, Skills, Runtime</strong> &mdash; three independent supervisors evaluating from three different angles. No magic. No "AI safety" vibes. Just the primitives this category should have shipped on day one.</p>
+    <p>We're shipping in public. If something ships, you'll see it. If something breaks, we'll say so &mdash; before anyone else does. If that resonates, join the waitlist. If not, at least we've given the alternative a name.</p>
+    <div class="founder-sig">
+      <div class="founder-avatar">
+        <model-viewer src="./ARIEL_3D.glb" alt="Ariel Shemesh"
+          disable-zoom disable-pan disable-tap interaction-prompt="none"
+          shadow-intensity="0" exposure="1.35" environment-image="neutral" loading="eager"
+          camera-orbit="0deg 85deg 80%" min-camera-orbit="0deg 85deg 80%" max-camera-orbit="0deg 85deg 80%"></model-viewer>
+      </div>
+      <div>
+        <div class="founder-name">Ariel Shemesh</div>
+        <div class="founder-role">Founder · TRIBOT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="page">
+    <div class="section-head">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Questions</span>
+      <h2>Frequently <em>asked.</em></h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>How is this different from Microsoft AGT, Veto.so, or a 200-line Python proxy?</summary>
+        <div class="faq-answer">Those are SDKs for engineers. TRIBOT is a desktop app &mdash; a non-developer installs it in one click. And rules engines check every call against a generic policy; TRIBOT learns your specific agent's baseline over 7 days and flags drift &mdash; an agent that suddenly calls <code>delete_file</code> at 3am is a signal, even if "delete_file" was technically allowed. 100% local, no telemetry, no cloud control plane. Free tier that actually protects; $19/mo solo when v1 ships.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does "three independent supervisors" actually buy me over one good policy engine?</summary>
+        <div class="faq-answer">Three uncorrelated failure modes. Persona uses an LLM-judge against a manifest (PSG-Agent). Skills uses statistical baseline deviation (UEBA). Runtime uses a DeBERTa prompt-injection classifier (Lakera PINT 97.7%). Each is blind to what the others see &mdash; so a payload that fools one rarely fools all three. Master denies on disagreement by default; you decide on contested calls. A single-policy SDK can't do this without becoming three projects.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does Master work with Claude Desktop, Cursor, or other MCP runtimes?</summary>
+        <div class="faq-answer">Architecture is MCP-runtime-agnostic &mdash; the four verbs (intercept, inspect, gate, record) don't care which agent speaks MCP. At launch we support the Claude Agent SDK; additional runtimes will follow. Closed-source runtimes where we can't sit on the tool-call boundary are not supported &mdash; the security model is incoherent without that access.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I override Master when it blocks something?</summary>
+        <div class="faq-answer">Yes &mdash; the kill switch works both ways. Every block surfaces the three verdicts from Persona, Skills, and Runtime and gives you three choices: allow this once, update the rule permanently, or cancel the run. Master surfaces; you decide. The final word on every tool call is always yours &mdash; that's the point of the whole architecture.</div>
+      </details>
+      <details class="faq-item">
+        <summary>You're a solo founder. Why bet production workflows on you?</summary>
+        <div class="faq-answer">Fair. That's why TRIBOT is 100% local with no cloud control plane &mdash; if I disappear tomorrow, your installation keeps running, your audit chain stays verifiable offline, and your data never left your machine. Everything exports as open-schema JSON. Skills are portable OCI artifacts. No vendor lock-in because there's no vendor infrastructure to lock you into.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does TRIBOT defend against, honestly?</summary>
+        <div class="faq-answer">Prompt injection via pasted or fetched content. Memory poisoning. Malicious MCP installs. Local data theft. Outbound exfiltration. We do <em>not</em> claim 3rd-party audit, SOC2, ISO, EU DPA, source-code escrow, nation-state coverage, or cloud-provider retention guarantees. We ship what we can verify &mdash; and the audit chain proves it.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How does this play with GDPR Article 22 (automated decisions)?</summary>
+        <div class="faq-answer">Master operates a two-lane architecture. Safety-critical blocks (malware, CSAM, sanctioned endpoints) are automatic under Art. 22(2). Discretionary blocks route to a human review queue with 24h SLA &mdash; satisfying Art. 22(3) and AI Act Art. 14 human-oversight duties. Appeal path is published in the ToS; DPA is pre-signed and linked on this page.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-inner">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Pre-launch · 50 design-partner seats</span>
+    <h2>Watch the kernel<br/><em>catch the first one.</em></h2>
+    <p class="lede">Fifty design partners, free for twelve months, with the only seats that lock in founding-pilot terms through launch.</p>
+    <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/mlgaapoo" method="POST" aria-label="Join the waitlist">
+      <label for="waitlist-email" class="sr-only">Email address</label>
+      <input id="waitlist-email" name="email" type="email" class="waitlist-input" placeholder="you@company.com" autocomplete="email" required />
+      <button type="submit" class="btn btn-accent" id="waitlist-submit">Join waitlist</button>
+    </form>
+    <div class="waitlist-note" id="waitlist-note">No spam · Unsubscribe any time · Launch updates only</div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <model-viewer src="./TRIBOT_LOGO.glb" alt=""
+        disable-zoom disable-pan disable-tap interaction-prompt="none"
+        shadow-intensity="0" exposure="1.25" environment-image="neutral" loading="eager"
+        camera-orbit="0deg 90deg 100%" style="pointer-events: none;"></model-viewer>
+      <div>
+        <div class="nav-brand-wordmark">TRIBOT</div>
+        <div class="footer-copy">© 2026 · Crafted with honest kill criteria.</div>
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#waitlist">Waitlist</a>
+      <a href="#faq">FAQ</a>
+      <a href="#founder">From the founder</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  const root = document.documentElement;
+  const STORAGE_GEM = 'tribot-gem';
+  const STORAGE_THEME = 'tribot-theme';
+
+  const savedGem = localStorage.getItem(STORAGE_GEM) || 'crystal';
+  applyGem(savedGem);
+  document.querySelectorAll('.gem-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const gem = btn.dataset.gem;
+      if (!gem) return;
+      applyGem(gem);
+      localStorage.setItem(STORAGE_GEM, gem);
+    });
+  });
+  function applyGem(gem) {
+    root.setAttribute('data-gem', gem);
+    document.querySelectorAll('.gem-chip').forEach(b => {
+      b.setAttribute('aria-pressed', b.dataset.gem === gem ? 'true' : 'false');
+    });
+  }
+
+  const savedTheme = localStorage.getItem(STORAGE_THEME);
+  if (savedTheme) applyTheme(savedTheme);
+  document.querySelectorAll('.theme-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(STORAGE_THEME, next);
+    });
+  });
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-toggle').forEach(t => {
+      const sun = t.querySelector('.sun');
+      const moon = t.querySelector('.moon');
+      if (sun && moon) {
+        sun.style.display  = theme === 'dark' ? '' : 'none';
+        moon.style.display = theme === 'dark' ? 'none' : '';
+      }
+    });
+  }
+
+  const events = [
+    { ts: '14:32:18', type: 'info',    text: 'tribot-watch v0.3.1 · connecting to local agent…' },
+    { ts: '14:32:19', type: 'ok',      text: 'connected · agent://local:7411 · session=a7c41e' },
+    { ts: '14:32:20', type: 'persona', text: 'PERSONA loaded · research-assistant-v2 · gem:crystal' },
+    { ts: '14:32:20', type: 'info',    text: 'SKILLS: 4 enabled (gmail.read · web.search · calendar.read · notion.write)' },
+    { ts: '14:32:21', type: 'info',    text: 'MASTER: 12 rules active · audit chain head a7c4…' },
+    { ts: '14:33:42', type: 'ok',      text: 'TOOL web.search("ai safety papers 2026") → 2.1s · 8 results' },
+    { ts: '14:34:05', type: 'ok',      text: 'TOOL gmail.read(label:inbox, limit:50) → 0.8s · 50 msgs' },
+    { ts: '14:34:17', type: 'warn',    text: 'INJECTION PATTERN DETECTED in msg from unknown@attacker.io' },
+    { ts: '14:34:17', type: 'detail',  text: 'markdown-exfil shape + hidden instruction nested in calendar invite' },
+    { ts: '14:34:18', type: 'blocked', text: 'TOOL gmail.send(to=external@attacker.io) → BLOCKED' },
+    { ts: '14:34:18', type: 'detail',  text: 'rule: outbound-allowlist/email · domain not in persona whitelist' },
+    { ts: '14:34:18', type: 'detail',  text: 'cause: calendar-invite content influenced tool-call target domain' },
+    { ts: '14:34:18', type: 'detail',  text: 'audit: e091 → f0a2 · chain verified · sigstore anchor ok' },
+    { ts: '14:34:22', type: 'info',    text: 'user viewed receipt · no override issued · rule retained' },
+    { ts: '14:34:55', type: 'ok',      text: 'TOOL notion.write(page=research-notes) → 0.4s · OK' },
+    { ts: '14:35:10', type: 'info',    text: 'session idle · awaiting next turn…' },
+  ];
+  const termBody = document.getElementById('terminal-body');
+  let played = false;
+  function playTerminal() {
+    if (played || !termBody) return;
+    played = true;
+    let i = 0;
+    function step() {
+      if (i >= events.length) {
+        const cursor = document.createElement('span');
+        cursor.className = 't-cursor';
+        termBody.appendChild(cursor);
+        return;
+      }
+      const e = events[i];
+      const line = document.createElement('div');
+      if (e.type === 'detail') {
+        line.className = 't-detail';
+        line.textContent = e.text;
+      } else {
+        line.className = 't-line';
+        const ts = document.createElement('span');
+        ts.className = 't-ts';
+        ts.textContent = '[' + e.ts + ']';
+        const content = document.createElement('span');
+        content.className = 't-' + e.type;
+        content.textContent = e.text;
+        line.appendChild(ts);
+        line.appendChild(content);
+      }
+      termBody.appendChild(line);
+      termBody.scrollTop = termBody.scrollHeight;
+      i++;
+      const delay = e.type === 'blocked' ? 900 : e.type === 'warn' ? 700 : e.type === 'detail' ? 260 : 540;
+      setTimeout(step, delay);
+    }
+    step();
+  }
+
+  const copyBtn = document.querySelector('.code-block-copy');
+  const codePre = document.querySelector('.code-block pre');
+  if (copyBtn && codePre && navigator.clipboard) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(codePre.textContent.trim());
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = 'Copied';
+        copyBtn.style.color = 'var(--ok)';
+        copyBtn.style.borderColor = 'rgba(52, 216, 154, 0.4)';
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+          copyBtn.style.color = '';
+          copyBtn.style.borderColor = '';
+        }, 1400);
+      } catch (e) { /* clipboard denied */ }
+    });
+  }
+
+  if (termBody && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          playTerminal();
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(termBody);
+  } else if (termBody) {
+    setTimeout(playTerminal, 1200);
+  }
+
+  const form = document.getElementById('waitlist-form');
+  const note = document.getElementById('waitlist-note');
+  const btn  = document.getElementById('waitlist-submit');
+  if (form && note && btn) {
+    const noteDefault = note.textContent;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      const prevLabel = btn.textContent;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          form.reset();
+          note.textContent = '✓ You\'re on the list. We\'ll email you before launch.';
+          note.style.color = 'var(--ok)';
+          btn.textContent = 'Joined';
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const msg  = (data.errors && data.errors[0] && data.errors[0].message) || 'Something went wrong. Try again?';
+          note.textContent = '✗ ' + msg;
+          note.style.color = 'var(--alert)';
+          btn.disabled = false;
+          btn.textContent = prevLabel;
+        }
+      } catch (err) {
+        note.textContent = '✗ Network issue. Check your connection and retry.';
+        note.style.color = 'var(--alert)';
+        btn.disabled = false;
+        btn.textContent = prevLabel;
+      }
+    });
+    const input = document.getElementById('waitlist-email');
+    if (input) input.addEventListener('input', () => {
+      if (note.style.color) {
+        note.style.color = '';
+        if (note.textContent.startsWith('✗')) note.textContent = noteDefault;
+      }
+    });
+  }
+
+  const burger = document.getElementById('nav-burger');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (burger && mobileNav) {
+    const closeNav = () => {
+      burger.setAttribute('aria-expanded', 'false');
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('mobile-nav-open');
+    };
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      if (open) { closeNav(); return; }
+      burger.setAttribute('aria-expanded', 'true');
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('mobile-nav-open');
+    });
+    mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 880) closeNav();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

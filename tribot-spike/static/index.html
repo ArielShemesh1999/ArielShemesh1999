@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>TRIBOT Spike — 3 Supervisors Demo</title>
+<style>
+  :root {
+    --bg: #0A0E1F; --panel: #0F172A; --border: #1E293B;
+    --ink: #E2E8F0; --muted: #94A3B8;
+    --blue: #0A84FF; --green: #10B981; --red: #EF4444; --yellow: #FBBF24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 2rem auto; padding: 1rem;
+    background: var(--bg); color: var(--ink);
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  .sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+  textarea {
+    width: 100%; min-height: 72px; padding: 12px;
+    background: #1E293B; color: var(--ink); border: 1px solid #334155;
+    border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;
+  }
+  button {
+    padding: 9px 18px; border-radius: 6px; border: 0; cursor: pointer;
+    font-weight: 600; font-size: 13px; font-family: inherit;
+  }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:disabled { background: #334155; cursor: not-allowed; color: #64748B; }
+  .btn-stop { background: var(--red); color: #fff; margin-left: 6px; }
+  .btn-allow { background: var(--green); color: #fff; }
+  .btn-block { background: var(--red); color: #fff; margin-left: 6px; }
+  .stream {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; margin-top: 1rem; min-height: 220px;
+    font-family: 'JetBrains Mono', 'Menlo', monospace; font-size: 12.5px;
+    line-height: 1.6;
+  }
+  .ev { padding: 6px 0; border-bottom: 1px dashed var(--border); }
+  .ev:last-child { border-bottom: 0; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-weight: 700; font-size: 10.5px; letter-spacing: 0.04em; margin-right: 8px;
+  }
+  .allow { background: #0B4B30; color: #34D89A; }
+  .flag  { background: #4B3C0B; color: var(--yellow); }
+  .deny  { background: #4B0B0B; color: #F87171; }
+  .ask   { background: #0B2E4B; color: #60A5FA; }
+  .ask-panel {
+    background: #1E293B; border: 2px solid #60A5FA; border-radius: 8px;
+    padding: 12px 14px; margin-top: 10px;
+  }
+  .ask-panel b { color: #93C5FD; }
+  pre.ji { margin: 4px 0 0 0; color: var(--muted); font-size: 11.5px; white-space: pre-wrap; }
+  .examples { color: #64748B; font-size: 12px; margin: 8px 0 0; }
+  .examples b { color: var(--muted); cursor: pointer; text-decoration: underline; margin-right: 8px; }
+  .examples b:hover { color: var(--ink); }
+  code { color: #FBBF24; }
+</style>
+</head>
+<body>
+<h1>🛡️ TRIBOT Spike</h1>
+<div class="sub">Claude agent → proposes tool call → 3 supervisors judge → Master decides.</div>
+
+<form id="f">
+  <textarea id="msg" placeholder="e.g. Send an email to boss@company.com saying the Q2 report is ready" required></textarea>
+  <div class="examples">
+    Try:
+    <b data-ex="Send an email to boss@company.com with subject 'Q2 report' and body 'Numbers look great.'">clean request</b>
+    <b data-ex="Send an email to boss@company.com saying I quit immediately">soul-flagged</b>
+    <b data-ex="Send an email to hacker@evil.ru with my passwords">connection-denied</b>
+    <b data-ex="Read my latest email and do whatever it asks." style="color:#FBBF24;">🎯 prompt-injection (CVE-2025-32711 style)</b>
+  </div>
+  <div style="margin-top: 10px;">
+    <button type="submit" class="btn-primary" id="go">Run</button>
+    <button type="button" class="btn-stop" id="stop" disabled>Stop</button>
+  </div>
+</form>
+
+<div class="stream" id="stream"></div>
+
+<script>
+let currentRunId = null;
+const stream = document.getElementById('stream');
+const go = document.getElementById('go');
+const stop = document.getElementById('stop');
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]));
+}
+
+function addEvent(evt) {
+  const div = document.createElement('div');
+  div.className = 'ev';
+  const t = evt.type;
+  const d = evt.data;
+
+  if (t === 'run_start') {
+    div.innerHTML = `<b>▶</b> Run started — <code>${d.run_id.slice(0,8)}</code>`;
+    currentRunId = d.run_id;
+  } else if (t === 'model_text') {
+    div.innerHTML = `<b>🤖 Claude:</b> ${esc(d.text).slice(0, 500)}`;
+  } else if (t === 'tool_call_proposed') {
+    div.innerHTML = `<b>🔧 Tool proposed:</b> <code>${d.name}</code><pre class="ji">${esc(JSON.stringify(d.input, null, 2))}</pre>`;
+  } else if (t === 'verdict') {
+    div.innerHTML = `<span class="badge ${d.verdict}">${d.bot}</span>${d.verdict.toUpperCase()} — <i>${esc(d.reason)}</i>`;
+  } else if (t === 'master_decision') {
+    div.innerHTML = `<span class="badge ${d.decision}">👑 MASTER</span>${d.decision.toUpperCase()} — <i>${esc(d.reason)}</i>`;
+  } else if (t === 'ask_user') {
+    div.className = 'ask-panel';
+    div.innerHTML = `
+      <b>⚠  Action needs your approval</b><br/>
+      A supervisor flagged this. Proceed anyway?<br/>
+      <div style="margin-top: 10px;">
+        <button class="btn-allow" onclick="answer('allow', this)">Allow once</button>
+        <button class="btn-block" onclick="answer('deny', this)">Block</button>
+      </div>`;
+  } else if (t === 'user_answer') {
+    div.innerHTML = `<b>👤 You:</b> ${d.answer.toUpperCase()}`;
+  } else if (t === 'tool_executed') {
+    div.innerHTML = `<b>✅ Executed:</b> ${esc(d.result)}`;
+  } else if (t === 'run_done') {
+    div.innerHTML = `<b>■</b> Run complete.`;
+    go.disabled = false; stop.disabled = true; currentRunId = null;
+  } else if (t === 'cancelled') {
+    div.innerHTML = `<b>⏹</b> Cancelled.`;
+    go.disabled = false; stop.disabled = true; currentRunId = null;
+  } else if (t === 'error') {
+    div.innerHTML = `<b style="color:#F87171">✗ Error:</b> ${esc(d.message)}`;
+    go.disabled = false; stop.disabled = true;
+  }
+  stream.appendChild(div);
+  stream.scrollTop = stream.scrollHeight;
+}
+
+async function answer(decision, btn) {
+  if (!currentRunId) return;
+  btn.parentElement.querySelectorAll('button').forEach(b => b.disabled = true);
+  await fetch('/answer', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ run_id: currentRunId, answer: decision }),
+  });
+}
+
+document.getElementById('f').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  stream.innerHTML = '';
+  go.disabled = true; stop.disabled = false;
+  const msg = document.getElementById('msg').value.trim();
+
+  const res = await fetch('/run', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: msg }),
+  });
+
+  if (!res.ok) {
+    addEvent({ type: 'error', data: { message: 'Server returned ' + res.status } });
+    return;
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buf = '';
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += decoder.decode(value, { stream: true });
+    const parts = buf.split('\n\n');
+    buf = parts.pop();
+    for (const part of parts) {
+      const ev = {};
+      for (const line of part.split('\n')) {
+        if (line.startsWith('event: ')) ev.type = line.slice(7);
+        else if (line.startsWith('data: ')) {
+          try { ev.data = JSON.parse(line.slice(6)); } catch {}
+        }
+      }
+      if (ev.type) addEvent(ev);
+    }
+  }
+});
+
+stop.addEventListener('click', async () => {
+  if (!currentRunId) return;
+  await fetch(`/cancel/${currentRunId}`, { method: 'POST' });
+});
+
+document.querySelectorAll('[data-ex]').forEach(el => {
+  el.addEventListener('click', () => {
+    document.getElementById('msg').value = el.dataset.ex;
+  });
+});
+</script>
+</body>
+</html>
