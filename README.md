@@ -150,6 +150,30 @@ A focused chat tool that takes a vague idea and walks through four targeted ques
 
 </td>
 </tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### [CLAUDE WORLD](https://github.com/ArielShemesh1999/claude-world-info)
+> Dreaming world — six districts, six memories
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+
+A small dreaming world built in vanilla HTML/CSS/JS — walk through six districts, meet the personas of Claude, collect six memories and open the tower. Hand-crafted scenes, intro LEDs, audio cues and FX, no frameworks.
+
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](#)
+[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/claude-world-info)
+
+</td>
+<td width="50%" valign="top">
+
+&nbsp;
+
+</td>
+</tr>
+
 </table>
 
 ---
