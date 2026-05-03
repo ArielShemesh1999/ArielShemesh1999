@@ -169,7 +169,18 @@ A small dreaming world built in vanilla HTML/CSS/JS — walk through six distric
 </td>
 <td width="50%" valign="top">
 
-&nbsp;
+### [MasterAI · LMS](https://github.com/ArielShemesh1999/master-ai-lms-info)
+> Hebrew RTL Learning Management System — Spring 2026 cohort
+
+![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CSS](https://img.shields.io/badge/CSS-Logical_Props-1572B6?style=flat-square&logo=css3&logoColor=white)
+
+A 6-week, 19-lesson LMS for the MasterAI course — practice checkboxes, completion tracking, real streak counter, three themes (System / Apple-Meta / Runway-VoltAgent emerald), Cmd+K palette, A11y-first navigation, all persisted to localStorage.
+
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](#)
+[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/master-ai-lms-info)
 
 </td>
 </tr>
