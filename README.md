@@ -178,6 +178,12 @@ A production-grade portfolio with 19 articles on AI, agents and APIs — full-bl
 </tr>
 </table>
 
+<div align="center">
+
+[![Explore all my repos](https://img.shields.io/badge/%F0%9F%9A%80_Explore_all_my_repos-0D1117?style=for-the-badge&logo=github&logoColor=C9A84C&labelColor=0D1117)](https://github.com/ArielShemesh1999?tab=repositories)
+
+</div>
+
 ---
 
 <div align="center">
