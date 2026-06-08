@@ -53,17 +53,17 @@ Merge, split, convert and cryptographically seal PDFs — entirely in the browse
 <tr>
 <td width="50%" valign="top">
 
-### [Digital Seal](https://click-pdf.vercel.app/verify.html)
-> Cryptographic file provenance — research → product
+### [Sculio](https://editor-beta-ruby.vercel.app)
+> Browser-only visual HTML editor
 
-![Research](https://img.shields.io/badge/Research-Paper_v0.3-C9A84C?style=flat-square)
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
-![EIP-712](https://img.shields.io/badge/EIP--712-3C3C3D?style=flat-square&logo=ethereum&logoColor=white)
-![Base](https://img.shields.io/badge/Base_L2-0052FF?style=flat-square&logo=coinbase&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
 
-A research primitive for trustless, Byzantine-resilient content provenance in the AI era — soft-binding resolution with inclusion + non-membership proofs and a soundness theorem (paper v0.3). Shipped as browser-side sign/verify inside Click-PDF.
+A browser-only visual HTML editor with a library of brand templates — design visually, export clean HTML, nothing to install. Static and fully client-side.
 
-[![Try Verify](https://img.shields.io/badge/Try_Verify-000?style=for-the-badge&logo=vercel&logoColor=white)](https://click-pdf.vercel.app/verify.html)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://editor-beta-ruby.vercel.app)
 
 </td>
 <td width="50%" valign="top">
@@ -131,17 +131,17 @@ Four service packages, animated case work and an HMAC-signed lead pipeline (Clou
 </td>
 <td width="50%" valign="top">
 
-### [4MEN · gentleman4u](https://gentleman4u.vercel.app)
-> Men's accessories e-commerce
+### [AE MOMENTS](https://www.ae-moments.co.il)
+> Trilingual magnet event-photography landing
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-HE_/_RU_/_EN-C9A84C?style=flat-square)
 
-A Hebrew RTL men's accessories storefront (rebranded 4MEN) — opinionated, restrained, with GSAP motion and an interactive zodiac wheel. Design-locked and accessibility-aware.
+A trilingual (HE/RU/EN) landing for a magnet event-photography service — custom i18n, a gold wordmark logo with pointer parallax, gallery and a WhatsApp booking flow. Live on its own domain.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://gentleman4u.vercel.app)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://www.ae-moments.co.il)
 
 </td>
 </tr>
@@ -177,25 +177,6 @@ A production-grade portfolio with 19 articles on AI, agents and APIs — full-bl
 </td>
 </tr>
 </table>
-
----
-
-## More Projects
-
-| Project | What it is | Link |
-|---|---|---|
-| **Website Accessibility** | Embeddable accessibility widget — drop one script onto any site for WCAG-minded controls (contrast, text scaling, motion). Per-domain licensed | [Live](https://website-accessibility-cyan.vercel.app) |
-| **Sculio** | Browser-only visual HTML editor with brand templates — design, export, no install | [Live](https://editor-beta-ruby.vercel.app) |
-| **MasterAI · LMS** | Hebrew RTL LMS for the Spring 2026 cohort — 6 weeks · 20 lessons, streaks, three themes, localStorage progress | [Info](https://github.com/ArielShemesh1999/master-ai-lms-info) |
-| **AE MOMENTS** | Trilingual (HE/RU/EN) magnet event-photography landing — gold wordmark logo, gallery, WhatsApp flow | [Live](https://www.ae-moments.co.il) |
-| **Chatbot Agent** | A smart business chatbot product — Gemini brain with multi-turn memory + a live Telegram bot, Hebrew RTL | [Live](https://chatbot-agent-gules.vercel.app) |
-| **Command** | Unified personal command center — inbox, deals, tasks and calendar in one workspace with an approve-before-send assistant | [Live](https://command-virid.vercel.app) |
-| **MasterAI** | Hebrew RTL landing for a practical AI mastery course — voice persona orbs, speech-synthesis demos, interactive workflow visualizer | [Live](https://masterai-mu.vercel.app) |
-| **MasterCrypto** | Practical crypto-course landing for Hebrew-speaking learners — curriculum, instructor, sign-up flow | [Live](https://crypto-course-landing-tau.vercel.app) |
-| **Prompt Engineer** | Turns a vague idea into a polished, AI-ready prompt through four guided questions — runs entirely in the browser | [Live](https://prompt-engineer-v1.vercel.app) |
-| **Clickpros** | Regulated native media-buying agency for CFD/Forex/Crypto brokers (Dubai/DIFC) — 5-page static site, GSAP + Motion, Liquid Glass UI | [Live](https://clickpros.vercel.app) |
-| **Marina CBT** | CBT therapy landing page for Marina Sweshinski — calm, trust-first design | [Live](https://marina-cbt-web.vercel.app) |
-| **Tzahi Landing** | Minimalist Hebrew RTL service landing with an end-to-end lead pipeline (Worker + D1 + Resend) | [Live](https://landing-page-tzahi.vercel.app) |
 
 ---
 
