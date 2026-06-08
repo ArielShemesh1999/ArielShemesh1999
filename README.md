@@ -170,7 +170,7 @@ A day-by-day trip planner that installs like a native iOS app — itineraries, l
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
 
-A production-grade portfolio with 19 articles on AI, agents and APIs — full-bleed swipe carousels, a 3D glass profile card and GSAP micro-interactions. Vanilla HTML/CSS/JS, no build; Tailwind via CDN.
+A production-grade portfolio with 19 articles on AI, agents and APIs — full-bleed swipe carousels, a 3D glass profile card and GSAP micro-interactions (via CDN). Vanilla HTML/CSS/JS, no build.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
 
