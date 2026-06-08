@@ -33,7 +33,6 @@
 A 47-tool suite for hashing, encryption, signing, key derivation, post-quantum primitives and AI helpers. 100% client-side — no accounts, no backend, no telemetry. Vanilla, no-build.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://cryptools-brown.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/cryptools-info)
 
 </td>
 <td width="50%" valign="top">
@@ -54,6 +53,21 @@ Merge, split, convert and cryptographically seal PDFs — entirely in the browse
 <tr>
 <td width="50%" valign="top">
 
+### [Digital Seal](https://click-pdf.vercel.app/verify.html)
+> Cryptographic file provenance — research → product
+
+![Research](https://img.shields.io/badge/Research-Paper_v0.3-C9A84C?style=flat-square)
+![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
+![EIP-712](https://img.shields.io/badge/EIP--712-3C3C3D?style=flat-square&logo=ethereum&logoColor=white)
+![Base](https://img.shields.io/badge/Base_L2-0052FF?style=flat-square&logo=coinbase&logoColor=white)
+
+A research primitive for trustless, Byzantine-resilient content provenance in the AI era — soft-binding resolution with inclusion + non-membership proofs and a soundness theorem (paper v0.3). Shipped as browser-side sign/verify inside Click-PDF.
+
+[![Try Verify](https://img.shields.io/badge/Try_Verify-000?style=for-the-badge&logo=vercel&logoColor=white)](https://click-pdf.vercel.app/verify.html)
+
+</td>
+<td width="50%" valign="top">
+
 ### [Bot-UI](https://marvis-one.vercel.app)
 > Personal AI companion — orchestrates 30 specialist agents
 
@@ -65,9 +79,10 @@ Merge, split, convert and cryptographically seal PDFs — entirely in the browse
 A multi-agent assistant where 30 specialist ADK agents collaborate behind one conversational interface — voice mode, persistent memory, a 95-provider gateway and a Cmd+K palette make it feel like a colleague, not a chatbot.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://marvis-one.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/bot-ui-info)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### [Mdata](https://mdata-alpha.vercel.app)
@@ -82,8 +97,6 @@ Track rivals, surface market signals and turn competitive noise into decisions. 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://mdata-alpha.vercel.app)
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### [MALINA](https://malina-pi.vercel.app)
@@ -97,9 +110,10 @@ Track rivals, surface market signals and turn competitive noise into decisions. 
 A Hebrew RTL storefront built around a Liquid Glass design system — 17 GSAP animations, responsive imagery and top-tier SEO. Restrained, premium, and built for the buying decision.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://malina-pi.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/MALINA-info)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### [ARETA](https://areta-wine.vercel.app)
@@ -113,11 +127,8 @@ A Hebrew RTL storefront built around a Liquid Glass design system — 17 GSAP an
 Four service packages, animated case work and an HMAC-signed lead pipeline (Cloudflare Worker + D1 + Resend). The agency front that ships the rest of these projects.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://areta-wine.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/ARETA-info)
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### [4MEN · gentleman4u](https://gentleman4u.vercel.app)
@@ -131,9 +142,10 @@ Four service packages, animated case work and an HMAC-signed lead pipeline (Clou
 A Hebrew RTL men's accessories storefront (rebranded 4MEN) — opinionated, restrained, with GSAP motion and an interactive zodiac wheel. Design-locked and accessibility-aware.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://gentleman4u.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/gentleman4u-info)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### [MA-Trip](https://ma-trip.pages.dev)
@@ -148,36 +160,19 @@ A day-by-day trip planner that installs like a native iOS app — itineraries, l
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=cloudflare&logoColor=white)](https://ma-trip.pages.dev)
 
 </td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Website Accessibility](https://website-accessibility-cyan.vercel.app)
-> Embeddable accessibility widget for any site
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-
-Drop one script onto any website to add WCAG-minded controls — contrast, text scaling, reduced motion, readable fonts. Per-domain licensed, with anti-clone protection.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://website-accessibility-cyan.vercel.app)
-
-</td>
 <td width="50%" valign="top">
 
 ### [Personal Portfolio](https://arielshemeshweb.vercel.app)
 > Portfolio + long-form articles on AI & agents
 
-![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind-4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
-![Framer](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
 
-A production-grade portfolio with 19 articles on AI, agents and APIs — full-bleed swipe carousels, Lenis smooth scroll, a 3D glass profile card and Framer Motion micro-interactions.
+A production-grade portfolio with 19 articles on AI, agents and APIs — full-bleed swipe carousels, a 3D glass profile card and GSAP micro-interactions. Vanilla HTML/CSS/JS, no build; Tailwind via CDN.
 
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
-[![Repo](https://img.shields.io/badge/Info_Repo-C9A84C?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ArielShemesh1999/personal-website-info)
 
 </td>
 </tr>
@@ -187,21 +182,20 @@ A production-grade portfolio with 19 articles on AI, agents and APIs — full-bl
 
 ## More Projects
 
-| Project | What it is | Links |
+| Project | What it is | Link |
 |---|---|---|
-| **AE MOMENTS** | Trilingual (HE/RU/EN) magnet event-photography landing — Three.js logo, gallery, WhatsApp flow | [Live](https://ae-moments.vercel.app) · [Info](https://github.com/ArielShemesh1999/ae-moments-info) |
-| **MasterAI · LMS** | Hebrew RTL LMS for the Spring 2026 cohort — 6 weeks · 19 lessons, streaks, three themes, localStorage progress | [Info](https://github.com/ArielShemesh1999/master-ai-lms-info) |
-| **Sculio** | Browser-only visual HTML editor with 67 brand templates — design, export, no install | [Live](https://editor-beta-ruby.vercel.app) · [Info](https://github.com/ArielShemesh1999/Sculio-info) |
+| **Website Accessibility** | Embeddable accessibility widget — drop one script onto any site for WCAG-minded controls (contrast, text scaling, motion). Per-domain licensed | [Live](https://website-accessibility-cyan.vercel.app) |
+| **Sculio** | Browser-only visual HTML editor with brand templates — design, export, no install | [Live](https://editor-beta-ruby.vercel.app) |
+| **MasterAI · LMS** | Hebrew RTL LMS for the Spring 2026 cohort — 6 weeks · 20 lessons, streaks, three themes, localStorage progress | [Info](https://github.com/ArielShemesh1999/master-ai-lms-info) |
+| **AE MOMENTS** | Trilingual (HE/RU/EN) magnet event-photography landing — gold wordmark logo, gallery, WhatsApp flow | [Live](https://www.ae-moments.co.il) |
 | **Chatbot Agent** | A smart business chatbot product — Gemini brain with multi-turn memory + a live Telegram bot, Hebrew RTL | [Live](https://chatbot-agent-gules.vercel.app) |
-| **Command** | Unified personal command center — inbox, deals, tasks and calendar in one workspace with an approve-before-send assistant | [Live](https://command-virid.vercel.app) · [Info](https://github.com/ArielShemesh1999/command-info) |
-| **MasterAI** | Hebrew RTL landing for a practical AI mastery course — 3D character previews, voice orbs, workflow visualizer | [Live](https://masterai-mu.vercel.app) · [Info](https://github.com/ArielShemesh1999/master-ai-info) |
-| **MasterCrypto** | Practical crypto-course landing for Hebrew-speaking learners — curriculum, instructor, sign-up flow | [Live](https://crypto-course-landing-tau.vercel.app) · [Info](https://github.com/ArielShemesh1999/master-crypto-info) |
-| **Prompt Engineer** | Turns a vague idea into a polished, AI-ready prompt through four guided questions — runs entirely in the browser | [Live](https://prompt-engineer-v1.vercel.app) · [Code](https://github.com/ArielShemesh1999/Prompt-Engineer-v1) |
-| **Clickpros** | Performance creative studio (Dubai/DIFC) — 5-page static site, GSAP + Motion, Liquid Glass UI | [Live](https://clickpros.vercel.app) · [Info](https://github.com/ArielShemesh1999/Clickpros-info) |
-| **Marina CBT** | CBT therapy landing page for Marina Sweshinski — calm, trust-first design | [Live](https://marina-cbt-web.vercel.app) · [Info](https://github.com/ArielShemesh1999/marina-cbt-web-info) |
-| **Tzahi Landing** | Minimalist Hebrew RTL service landing with an end-to-end lead pipeline (Worker + D1 + Resend) | [Live](https://landing-page-tzahi.vercel.app) · [Info](https://github.com/ArielShemesh1999/LANDING-PAGE-TZAHI-INFO) |
-| **שלום / سلام** | Bidirectional Hebrew↔Arabic learning app — vocabulary, transliteration, two-way drills | [Info](https://github.com/ArielShemesh1999/shalom-salam-info) |
-| **CLAUDE WORLD** | An explorable dreaming world — six districts, Claude personas, six memories and a tower to escape. Vanilla, no frameworks | [Live](https://claude-world-two.vercel.app) · [Info](https://github.com/ArielShemesh1999/claude-world-info) |
+| **Command** | Unified personal command center — inbox, deals, tasks and calendar in one workspace with an approve-before-send assistant | [Live](https://command-virid.vercel.app) |
+| **MasterAI** | Hebrew RTL landing for a practical AI mastery course — voice persona orbs, speech-synthesis demos, interactive workflow visualizer | [Live](https://masterai-mu.vercel.app) |
+| **MasterCrypto** | Practical crypto-course landing for Hebrew-speaking learners — curriculum, instructor, sign-up flow | [Live](https://crypto-course-landing-tau.vercel.app) |
+| **Prompt Engineer** | Turns a vague idea into a polished, AI-ready prompt through four guided questions — runs entirely in the browser | [Live](https://prompt-engineer-v1.vercel.app) |
+| **Clickpros** | Regulated native media-buying agency for CFD/Forex/Crypto brokers (Dubai/DIFC) — 5-page static site, GSAP + Motion, Liquid Glass UI | [Live](https://clickpros.vercel.app) |
+| **Marina CBT** | CBT therapy landing page for Marina Sweshinski — calm, trust-first design | [Live](https://marina-cbt-web.vercel.app) |
+| **Tzahi Landing** | Minimalist Hebrew RTL service landing with an end-to-end lead pipeline (Worker + D1 + Resend) | [Live](https://landing-page-tzahi.vercel.app) |
 
 ---
 
