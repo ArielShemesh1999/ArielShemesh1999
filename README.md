@@ -22,98 +22,19 @@
 <tr>
 <td width="50%" valign="top">
 
-### [Cryptools](https://cryptools-brown.vercel.app)
-> Privacy-first crypto & developer toolkit — 47 tools
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-
-A 47-tool suite for hashing, encryption, signing, key derivation, post-quantum primitives and AI helpers. 100% client-side — no accounts, no backend, no telemetry. Vanilla, no-build.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://cryptools-brown.vercel.app)
-
-</td>
-<td width="50%" valign="top">
-
-### [Click-PDF](https://click-pdf.vercel.app)
-> Hebrew RTL PDF toolkit + browser-side digital signing
-
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-![Ethers.js](https://img.shields.io/badge/Ethers.js-2535A0?style=flat-square&logo=ethereum&logoColor=white)
-
-Merge, split, convert and cryptographically seal PDFs — entirely in the browser. Digital signatures bind content with keccak256 + EIP-712 + ecrecover. Cloudflare Workers, D1, R2, Turnstile.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://click-pdf.vercel.app)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Sculio](https://editor-beta-ruby.vercel.app)
-> Browser-only visual HTML editor
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
-
-A browser-only visual HTML editor with a library of brand templates — design visually, export clean HTML, nothing to install. Static and fully client-side.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://editor-beta-ruby.vercel.app)
-
-</td>
-<td width="50%" valign="top">
-
-### [Bot-UI](https://marvis-one.vercel.app)
-> Personal AI companion — orchestrates 30 specialist agents
-
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Anthropic](https://img.shields.io/badge/Anthropic-D97757?style=flat-square&logo=anthropic&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
-
-A multi-agent assistant where 30 specialist ADK agents collaborate behind one conversational interface — voice mode, persistent memory, a 95-provider gateway and a Cmd+K palette make it feel like a colleague, not a chatbot.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://marvis-one.vercel.app)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Mdata](https://mdata-alpha.vercel.app)
-> Competitor-intelligence platform
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-
-Track rivals, surface market signals and turn competitive noise into decisions. Dashboards, charts and a command palette in a clean light-theme UI. Vanilla, no-build.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://mdata-alpha.vercel.app)
-
-</td>
-<td width="50%" valign="top">
-
-### [MALINA](https://malina-pi.vercel.app)
-> Premium accessories e-commerce for the Israeli woman
+### [Personal Portfolio](https://arielshemeshweb.vercel.app)
+> Portfolio + 25 long-form articles on AI & agents
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
 
-A Hebrew RTL storefront built around a Liquid Glass design system — 17 GSAP animations, responsive imagery and top-tier SEO. Restrained, premium, and built for the buying decision.
+A production-grade Hebrew RTL portfolio with 25 articles on AI, agents and APIs, plus dedicated Projects & Research hubs — constellation-canvas hero, an animated brand seal, full-bleed swipe carousels and GSAP micro-interactions. Vanilla, no build.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://malina-pi.vercel.app)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### [ARETA](https://areta-wine.vercel.app)
@@ -129,50 +50,98 @@ Four service packages, animated case work and an HMAC-signed lead pipeline (Clou
 [![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://areta-wine.vercel.app)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-### [AE MOMENTS](https://www.ae-moments.co.il)
-> Trilingual magnet event-photography landing
+### [fabius](https://fabius-landing.vercel.app)
+> One agent, fifteen coordinated skills — scout wide, strike narrow
 
-![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-HE_/_RU_/_EN-C9A84C?style=flat-square)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![SVG](https://img.shields.io/badge/Animated_SVG-FFB13B?style=flat-square&logo=svg&logoColor=black)
 
-A trilingual (HE/RU/EN) landing for a magnet event-photography service — custom i18n, a gold wordmark logo with pointer parallax, gallery and a WhatsApp booking flow. Live on its own domain.
+The product landing for the fabius super-skill — an animated system map with flowing dispatch packets, a nine-step reasoning loop, a research gallery and the decision-math behind when the agent acts. Apple/Framer-grade, vanilla no-build.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://www.ae-moments.co.il)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://fabius-landing.vercel.app)
+
+</td>
+<td width="50%" valign="top">
+
+### [Synapse](https://synapse-vert-one.vercel.app)
+> The organisation brain — a company you can see and run
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+![D1](https://img.shields.io/badge/D1_+_Vectorize-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+
+A live force-directed knowledge graph of an entire organisation — people, AI agents, departments, tools and workflows — with profile drawers, missions, multi-agent flows and a compounding semantic memory (Worker + D1 + Vectorize + Workers AI).
+
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://synapse-vert-one.vercel.app)
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### [MA-Trip](https://ma-trip.pages.dev)
-> Hebrew RTL trip-planning iOS PWA
+### [Sculio](https://editor-beta-ruby.vercel.app)
+> Browser-only visual HTML editor — 70 brand templates
 
-![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
 
-A day-by-day trip planner that installs like a native iOS app — itineraries, lodging and activities, offline-friendly. End-to-end on Cloudflare (Pages + Worker + D1 + R2 + KV).
+A browser-only visual HTML editor with 70 brand templates and an AI builder that speaks 142 design-system voices — design visually, export clean HTML, nothing to install. RTL-aware and fully client-side.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=cloudflare&logoColor=white)](https://ma-trip.pages.dev)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://editor-beta-ruby.vercel.app)
 
 </td>
 <td width="50%" valign="top">
 
-### [Personal Portfolio](https://arielshemeshweb.vercel.app)
-> Portfolio + long-form articles on AI & agents
+### [Prompt Engineer](https://prompt-engineer-v1.vercel.app)
+> Turn rough ideas into precise prompts
+
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
+
+A local-first prompt builder that walks a rough idea through a guided Role → Context → Output → Constraints flow, then saves, tags and reformats the result. Supabase backend with owner-scoped RLS and a full localStorage fallback — privacy-preserving by default.
+
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://prompt-engineer-v1.vercel.app)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### [CLAUDE WORLD](https://claude-world-two.vercel.app)
+> A 3D voxel world with a recruit-a-Claude-team meta-game
+
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white)
+
+A Minecraft-style Three.js survival world fused with an agent-arena meta-game — walk six districts, recruit Claude personas, collect memories and open the tower. Vanilla JS + Three.js via CDN, single engine file, no build.
+
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://claude-world-two.vercel.app)
+
+</td>
+<td width="50%" valign="top">
+
+### [4MEN](https://gentleman4u.vercel.app)
+> Men's accessories e-commerce — Hebrew RTL storefront
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
 
-A production-grade portfolio with 19 articles on AI, agents and APIs — full-bleed swipe carousels, a 3D glass profile card and GSAP micro-interactions (via CDN). Vanilla HTML/CSS/JS, no build.
+An ASOS-grade Hebrew RTL storefront for men's accessories — Liquid Glass design system, GSAP motion, a WooCommerce-style admin panel, legal and trust pages, and an anti-clone protection layer.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
+[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://gentleman4u.vercel.app)
 
 </td>
 </tr>
