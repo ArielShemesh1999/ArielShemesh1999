@@ -4,7 +4,7 @@
 //
 //   npx playwright@latest install chromium   # once
 //   node scripts/capture-work.mjs            # all of them
-//   node scripts/capture-work.mjs sculio malina
+//   node scripts/capture-work.mjs sculio cryptools
 //
 // Several of these sites carry an anti-clone layer that blanks the page for
 // an automated browser and prints the reason as "probe: <name>". Two probes
@@ -25,10 +25,6 @@ const SITES = [
   ['sculio',     'https://editor-beta-ruby.vercel.app/'],
   ['cryptools',  'https://cryptools-brown.vercel.app/'],
   ['portfolio',  'https://arielshemeshweb.vercel.app/'],
-  ['malina',     'https://malina-pi.vercel.app/'],
-  ['4men',       'https://gentleman4u.vercel.app/'],
-  ['prompt',     'https://prompt-engineer-v1.vercel.app/'],
-  ['just-skill', 'https://argaz.vercel.app/'],
 ];
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';

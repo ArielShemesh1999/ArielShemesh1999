@@ -74,7 +74,7 @@ function sparkline(days, { spark }, x, y, w, h) {
 
 function svg(stats, theme) {
   const t = THEMES[theme];
-  const W = 1200, H = 132;
+  const W = 1200, H = 136;
   const font = `-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif`;
 
   const tiles = [
@@ -83,21 +83,21 @@ function svg(stats, theme) {
     { value: nf.format(stats.stars), label: 'stars earned' },
   ];
 
-  const COL = [72, 392, 632];
+  const COL = [2, 330, 570];
   const body = tiles.map((tile, i) => {
     const x = COL[i];
     const divider = i > 0
-      ? `<rect x="${x - 44}" y="30" width="1" height="60" fill="${t.hair}"/>`
+      ? `<rect x="${x - 44}" y="32" width="1" height="62" fill="${t.hair}"/>`
       : '';
     return `${divider}
-    <text x="${x}" y="66" font-family="${font}" font-size="38" font-weight="600" letter-spacing="-1" fill="${t.accent}">${esc(tile.value)}</text>
-    <text x="${x}" y="92" font-family="${font}" font-size="11.5" font-weight="500" letter-spacing="1.6" fill="${t.muted}">${esc(tile.label.toUpperCase())}</text>`;
+    <text x="${x}" y="68" font-family="${font}" font-size="42" font-weight="600" letter-spacing="-1" fill="${t.accent}">${esc(tile.value)}</text>
+    <text x="${x}" y="95" font-family="${font}" font-size="11.5" font-weight="500" letter-spacing="1.6" fill="${t.muted}">${esc(tile.label.toUpperCase())}</text>`;
   }).join('\n');
 
-  const sparkX = 900, sparkW = 228, sparkH = 34;
+  const sparkX = 966, sparkW = 232, sparkH = 36;
   const spark = `
-    <text x="${sparkX}" y="42" font-family="${font}" font-size="11.5" font-weight="500" letter-spacing="1.6" fill="${t.muted}">LAST 30 DAYS</text>
-    ${sparkline(stats.days, t, sparkX, 52, sparkW, sparkH)}`;
+    <text x="${sparkX}" y="44" font-family="${font}" font-size="11.5" font-weight="500" letter-spacing="1.6" fill="${t.muted}">LAST 30 DAYS</text>
+    ${sparkline(stats.days, t, sparkX, 54, sparkW, sparkH)}`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${nf.format(stats.total)} contributions in the last 12 months, ${stats.repos} public repositories, ${stats.stars} stars earned">
   <rect width="${W}" height="${H}" fill="none"/>

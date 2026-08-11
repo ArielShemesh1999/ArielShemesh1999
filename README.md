@@ -1,13 +1,5 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-dark.webp?v=1" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-light.webp?v=1" />
-    <img alt="Ariel Shemesh — AI systems, software and digital experiences" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-dark.webp?v=1" width="100%" />
-  </picture>
-</div>
-
-<div align="center">
-  <picture>
     <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-light.svg" />
     <img alt="Contributions, public repositories and stars" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-dark.svg" width="100%" />
@@ -117,70 +109,6 @@ A no-build Hebrew RTL site on a light Liquid Glass canvas. Every case study open
 
 </td>
 </tr>
-<tr>
-<td width="50%" valign="top">
-
-<a href="https://malina-pi.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/malina.webp?v=1" alt="MALINA" width="100%" /></a>
-
-### [MALINA](https://malina-pi.vercel.app)
-
-**Editorial gift-box storefront, Hebrew RTL**
-
-A premium accessories brand given a magazine front page — issue masthead, seasonal edition, full-bleed product photography — on a Liquid Glass design system with GSAP motion and a mobile build at parity with the desktop one. Vanilla, no build step.
-
-`HTML` `CSS` `JavaScript` `GSAP` `No build step`
-
-**[Live site ↗](https://malina-pi.vercel.app)**
-
-</td>
-<td width="50%" valign="top">
-
-<a href="https://gentleman4u.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/4men.webp?v=1" alt="4MEN" width="100%" /></a>
-
-### [4MEN](https://gentleman4u.vercel.app)
-
-**Men's accessories storefront, front to back**
-
-A client storefront in Hebrew RTL — catalog, cart, checkout flow, legal and trust pages — with a WooCommerce-style admin panel behind it, ARIA-only accessibility layered onto a finished design, and an anti-clone protection layer on top.
-
-`HTML` `CSS` `JavaScript` `GSAP` `Service Worker`
-
-**[Live site ↗](https://gentleman4u.vercel.app)**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-<a href="https://prompt-engineer-v1.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/prompt.webp?v=1" alt="Prompt Engineer" width="100%" /></a>
-
-### [Prompt Engineer](https://prompt-engineer-v1.vercel.app)
-
-**A prompt builder that holds a real conversation**
-
-Describe what you want; it asks at most four adaptive questions — fewer, or none, when the intent is already clear — then writes a precise prompt for any assistant. Three Gemini 2.5 Flash routes including microphone transcription, Supabase behind it, and a full offline fallback that needs zero setup.
-
-`React 19` `Vite 6` `Tailwind 4` `Gemini 2.5 Flash` `Supabase`
-
-**[Live site ↗](https://prompt-engineer-v1.vercel.app)** · [Source ↗](https://github.com/ArielShemesh1999/Prompt-Engineer-v1)
-
-</td>
-<td width="50%" valign="top">
-
-<a href="https://argaz.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/just-skill.webp?v=1" alt="just-skill" width="100%" /></a>
-
-### [just-skill](https://argaz.vercel.app)
-
-**Know exactly what an AI tool does before you install it**
-
-A Hebrew, RTL catalog of audited GitHub repositories. Every entry carries a reviewed permission profile, concrete strengths and limitations, and a direct link to the source — no scores, no rankings, no leaderboard.
-
-`HTML` `CSS` `JavaScript` `No build step`
-
-**[Live site ↗](https://argaz.vercel.app)**
-
-</td>
-</tr>
 </table>
 
 <div align="center">
@@ -211,6 +139,6 @@ A Hebrew, RTL catalog of audited GitHub repositories. Every entry carries a revi
 
 <br>
 
-<sub>Every image on this page — the banner, the live stat bar, the project cards and the snake — is generated and served from this repository. No third-party README services.</sub>
+<sub>Every image on this page — the live stat bar, the project cards and the snake — is generated and served from this repository. No third-party README services.</sub>
 
 </div>
