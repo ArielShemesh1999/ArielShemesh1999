@@ -1,147 +1,183 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:1a1a2e,100:C9A84C&height=220&section=header&text=ArielShemesh1999&fontSize=55&fontColor=fff&animation=fadeIn&fontAlignY=45" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-dark.webp?v=1" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-light.webp?v=1" />
+    <img alt="Ariel Shemesh — AI systems, software and digital experiences" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/hero-dark.webp?v=1" width="100%" />
+  </picture>
 </div>
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=800&color=C9A84C&center=true&vCenter=true&width=700&lines=AI+systems%2C+software+and+digital+experiences;Agents+that+run+on+every+major+model;Hebrew+RTL+products%2C+shipped+end-to-end" />
-</div>
-
-<div align="center">
-
-<img src="https://img.shields.io/github/stars/ArielShemesh1999?style=for-the-badge&color=C9A84C&labelColor=0D1117&label=Stars" />
-<img src="https://img.shields.io/github/followers/ArielShemesh1999?style=for-the-badge&color=C9A84C&labelColor=0D1117&label=Followers" />
-<img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftimeapi.io%2Fapi%2FTime%2Fcurrent%2Fzone%3FtimeZone%3DAsia%2FJerusalem&query=%24.time&label=Local+Time&color=C9A84C&labelColor=0D1117&style=for-the-badge" />
-
+  <picture>
+    <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-light.svg" />
+    <img alt="Contributions, public repositories and stars" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-dark.svg" width="100%" />
+  </picture>
 </div>
 
 ---
 
-## Featured Projects
+## Selected work
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
+<a href="https://averya.co.il"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/averya.webp?v=1" alt="Averya" width="100%" /></a>
+
 ### [Averya](https://averya.co.il)
-> AI specification and implementation for businesses
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Cloudflare](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+**AI specification and implementation for businesses**
 
-My agency. A Hebrew RTL site that sells the actual work — site builds, CRM, automations and GEO — across service pages with matched depth, a Gemini-powered chat agent that captures a lead inside the conversation, and an HMAC-signed lead pipeline (Cloudflare Worker + D1 + Resend). Vanilla, no build.
+My agency. Twenty-three Hebrew RTL pages that sell the actual work — site builds, CRM, automations, agents and GEO — with matched depth on every service page, a Gemini chat agent that captures a lead inside the conversation, and an HMAC-signed lead pipeline on Cloudflare Workers, D1 and Resend.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://averya.co.il)
+`HTML` `CSS` `JavaScript` `GSAP` `Cloudflare Workers` `D1` `Gemini`
+
+**[Live site ↗](https://averya.co.il)**
 
 </td>
 <td width="50%" valign="top">
+
+<a href="https://fabius-landing.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/fabius.webp?v=1" alt="fabius" width="100%" /></a>
 
 ### [fabius](https://fabius-landing.vercel.app)
-> One agent, fifteen skills, every major model
 
-![Skill](https://img.shields.io/badge/Claude_Plugin-C9A84C?style=flat-square&logo=anthropic&logoColor=black)
-![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Open Source](https://img.shields.io/badge/Public_Repo-181717?style=flat-square&logo=github&logoColor=white)
+**The autonomous agent that runs on every major model**
 
-An autonomous engineering agent that runs on Anthropic, OpenAI, Google, Mistral and Groq under one stance — scout wide, strike narrow. Fifteen coordinated, zero-overlap skills, a 22-rule decision core, an IDENTITY contract and the FBS benchmark. Installable by anyone: `/plugin marketplace add ArielShemesh1999/fabius`.
+Fifteen coordinated, zero-overlap skills under one stance — scout wide, strike narrow. A 22-rule decision core, an IDENTITY contract and the FBS benchmark, running the same way on Anthropic, OpenAI, Google, Mistral and Groq. Version 2.3.1, cryptographically sealed, and installable by anyone:
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://fabius-landing.vercel.app)
-[![Repo](https://img.shields.io/badge/Source-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ArielShemesh1999/fabius)
+`/plugin marketplace add ArielShemesh1999/fabius`
+
+`Claude Plugin` `Markdown` `Node.js` `Public repo`
+
+**[Live site ↗](https://fabius-landing.vercel.app)** · [Source ↗](https://github.com/ArielShemesh1999/fabius)
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### [Synapse](https://synapse-vert-one.vercel.app)
-> The console fabius is operated from
+<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/click-pdf.webp?v=1" alt="Click PDF" width="100%" /></a>
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Cloudflare](https://img.shields.io/badge/Workers_+_D1-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-![Vectorize](https://img.shields.io/badge/Vectorize_+_Workers_AI-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+### [Click PDF](https://click-pdf.vercel.app)
 
-A force-directed graph of the agent's own architecture, turned into a working surface: route a task across five providers, run fabius as a persistent background operator (D1-checkpointed step-then-verify loop, cron heartbeat, routines, artifact store), and compound a semantic memory that only certified output is allowed to ground.
+**A Hebrew PDF workspace that never uploads your file**
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://synapse-vert-one.vercel.app)
+Sign, stamp, merge, compress and edit — the whole flow runs in the browser, so no document ever reaches a server. Carries a verifiable SEAL that binds a file to a hash anyone can re-check, behind Turnstile and a Cloudflare Worker edge.
+
+`HTML` `CSS` `JavaScript` `Cloudflare Workers` `Turnstile`
+
+**[Live site ↗](https://click-pdf.vercel.app)**
 
 </td>
 <td width="50%" valign="top">
+
+<a href="https://editor-beta-ruby.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/sculio.webp?v=1" alt="Sculio" width="100%" /></a>
 
 ### [Sculio](https://editor-beta-ruby.vercel.app)
-> Browser-only visual HTML editor, 70 brand templates
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
+**Browser-only visual HTML editor**
 
-Design a landing page visually and export clean HTML — nothing to install. 70 brand templates and an AI builder that writes in 142 distinct design-system voices while a zero-styling guardrail keeps your layout intact. RTL-aware and fully client-side.
+Design a landing page visually and export clean HTML — nothing to install. Seventy brand templates and an AI builder that writes in 142 distinct design-system voices, while a zero-styling guardrail keeps your layout intact. RTL-aware and fully client-side.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://editor-beta-ruby.vercel.app)
+`HTML` `CSS` `JavaScript` `Cloudflare Workers` `Resend`
+
+**[Live site ↗](https://editor-beta-ruby.vercel.app)**
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### [SolForge](https://solforge-weld.vercel.app)
-> Smart-contract security lab — 64 detectors
-
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=flat-square&logo=ethereum&logoColor=white)
-![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
-
-Paste a contract address or Solidity source and get a real audit pass: the source is fetched, parsed to an AST and walked by 64 detectors — reentrancy, tx.origin auth, unchecked calls, arbitrary transferFrom and more — each finding carrying a severity, a plain-English reason and a fix. Runs entirely in the browser, no API key.
-
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://solforge-weld.vercel.app)
-
-</td>
-<td width="50%" valign="top">
+<a href="https://cryptools-brown.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/cryptools.webp?v=1" alt="Cryptools" width="100%" /></a>
 
 ### [Cryptools](https://cryptools-brown.vercel.app)
-> 42 privacy-first developer tools
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![WebCrypto](https://img.shields.io/badge/Web_Crypto_API-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
-![No Build](https://img.shields.io/badge/100%25_Client--side-555555?style=flat-square)
+**42 privacy-first developer tools**
 
-Hash, encrypt, sign, derive, generate and convert — 42 tools including post-quantum primitives, in one fast suite. Every byte is processed in your own browser: nothing is uploaded, nothing is logged, and the whole thing works offline.
+Hash, encrypt, sign, derive, generate and convert — from HMAC and Argon2id to Shamir secret sharing, PASETO and post-quantum ML-KEM/ML-DSA. Every byte is processed in your own browser: nothing is uploaded, nothing is logged, and it keeps working offline.
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://cryptools-brown.vercel.app)
+`JavaScript` `Web Crypto API` `100% client-side`
+
+**[Live site ↗](https://cryptools-brown.vercel.app)**
+
+</td>
+<td width="50%" valign="top">
+
+<a href="https://arielshemeshweb.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/portfolio.webp?v=1" alt="Personal portfolio" width="100%" /></a>
+
+### [Personal Portfolio](https://arielshemeshweb.vercel.app)
+
+**Eleven case studies, each with a live demo**
+
+A no-build Hebrew RTL site on a light Liquid Glass canvas. Every case study opens both a written study and the working product it describes, alongside long-form writing on AI and agents, an HMAC-gated Cloudflare lead pipeline and a matching light-glass AI assistant.
+
+`HTML` `CSS` `JavaScript` `GSAP` `Cloudflare Workers`
+
+**[Live site ↗](https://arielshemeshweb.vercel.app)**
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### [CLAUDE WORLD](https://claude-world-two.vercel.app)
-> THE LABYRINTH — 10 monster-guarded maze levels
+<a href="https://malina-pi.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/malina.webp?v=1" alt="MALINA" width="100%" /></a>
 
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white)
+### [MALINA](https://malina-pi.vercel.app)
 
-A Three.js voxel world. The headline mode is THE LABYRINTH: ten seeded perfect mazes baked straight into chunk generation, guarded by mobs and closed by a glowing Data-Core gate — so every run regenerates pristine. Underneath it sits the full survival sandbox and the recruit-a-Claude-team agent arena. One engine file, no build.
+**Editorial gift-box storefront, Hebrew RTL**
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://claude-world-two.vercel.app)
+A premium accessories brand given a magazine front page — issue masthead, seasonal edition, full-bleed product photography — on a Liquid Glass design system with GSAP motion and a mobile build at parity with the desktop one. Vanilla, no build step.
+
+`HTML` `CSS` `JavaScript` `GSAP` `No build step`
+
+**[Live site ↗](https://malina-pi.vercel.app)**
 
 </td>
 <td width="50%" valign="top">
 
-### [Personal Portfolio](https://arielshemeshweb.vercel.app)
-> Portfolio + 25 long-form articles on AI & agents
+<a href="https://gentleman4u.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/4men.webp?v=1" alt="4MEN" width="100%" /></a>
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
+### [4MEN](https://gentleman4u.vercel.app)
 
-A production-grade Hebrew RTL portfolio with 25 articles on AI, agents and APIs, plus dedicated Projects and Research hubs — constellation-canvas hero, an animated brand seal, full-bleed swipe carousels and GSAP micro-interactions. Vanilla, no build.
+**Men's accessories storefront, front to back**
 
-[![Live](https://img.shields.io/badge/Live_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://arielshemeshweb.vercel.app)
+A client storefront in Hebrew RTL — catalog, cart, checkout flow, legal and trust pages — with a WooCommerce-style admin panel behind it, ARIA-only accessibility layered onto a finished design, and an anti-clone protection layer on top.
+
+`HTML` `CSS` `JavaScript` `GSAP` `Service Worker`
+
+**[Live site ↗](https://gentleman4u.vercel.app)**
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<a href="https://prompt-engineer-v1.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/prompt.webp?v=1" alt="Prompt Engineer" width="100%" /></a>
+
+### [Prompt Engineer](https://prompt-engineer-v1.vercel.app)
+
+**A prompt builder that holds a real conversation**
+
+Describe what you want; it asks at most four adaptive questions — fewer, or none, when the intent is already clear — then writes a precise prompt for any assistant. Three Gemini 2.5 Flash routes including microphone transcription, Supabase behind it, and a full offline fallback that needs zero setup.
+
+`React 19` `Vite 6` `Tailwind 4` `Gemini 2.5 Flash` `Supabase`
+
+**[Live site ↗](https://prompt-engineer-v1.vercel.app)** · [Source ↗](https://github.com/ArielShemesh1999/Prompt-Engineer-v1)
+
+</td>
+<td width="50%" valign="top">
+
+<a href="https://argaz.vercel.app"><img src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/work/just-skill.webp?v=1" alt="just-skill" width="100%" /></a>
+
+### [just-skill](https://argaz.vercel.app)
+
+**Know exactly what an AI tool does before you install it**
+
+A Hebrew, RTL catalog of audited GitHub repositories. Every entry carries a reviewed permission profile, concrete strengths and limitations, and a direct link to the source — no scores, no rankings, no leaderboard.
+
+`HTML` `CSS` `JavaScript` `No build step`
+
+**[Live site ↗](https://argaz.vercel.app)**
 
 </td>
 </tr>
@@ -149,17 +185,19 @@ A production-grade Hebrew RTL portfolio with 25 articles on AI, agents and APIs,
 
 <div align="center">
 
-[![Explore all my repos](https://img.shields.io/badge/%F0%9F%9A%80_Explore_all_my_repos-0D1117?style=for-the-badge&logo=github&logoColor=C9A84C&labelColor=0D1117)](https://github.com/ArielShemesh1999?tab=repositories)
+**[Explore all repositories ↗](https://github.com/ArielShemesh1999?tab=repositories)**
 
 </div>
 
 ---
 
+## Contribution graph
+
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake.svg" />
-    <img alt="github contribution snake" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake.svg" />
+    <img alt="A snake eating my GitHub contribution graph" src="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/output/github-snake.svg" width="100%" />
   </picture>
 </div>
 
@@ -169,15 +207,10 @@ A production-grade Hebrew RTL portfolio with 25 articles on AI, agents and APIs,
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/ariel-shemesh/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://github.com/ArielShemesh1999"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+**[LinkedIn ↗](https://www.linkedin.com/in/ariel-shemesh/)** · **[Portfolio ↗](https://arielshemeshweb.vercel.app)** · **[Averya ↗](https://averya.co.il)**
 
-<br><br>
+<br>
 
-> _Build it. Learn from it. Improve it._
+<sub>Every image on this page — the banner, the live stat bar, the project cards and the snake — is generated and served from this repository. No third-party README services.</sub>
 
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:C9A84C,50:1a1a2e,100:0D1117&height=120&section=footer" />
 </div>
