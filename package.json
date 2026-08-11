@@ -1,0 +1,16 @@
+{
+  "name": "arielshemesh1999-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sources for everything the GitHub profile README renders: the banner, the project cards and the stat bar.",
+  "scripts": {
+    "hero": "node scripts/build-hero.mjs",
+    "cards": "node scripts/capture-work.mjs",
+    "stats": "node scripts/build-stats.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  },
+  "license": "UNLICENSED"
+}
