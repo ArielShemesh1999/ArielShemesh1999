@@ -44,18 +44,31 @@ async function account(user) {
   const headers = { ...UA, accept: 'application/vnd.github+json' };
   if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
-  const me = await (await fetch(`https://api.github.com/users/${user}`, { headers })).json();
+  // A rate-limited or errored call answers 403 with a JSON *object*. Reading
+  // counts off that object yields 0, which is a number the rest of this
+  // script is perfectly happy to render and commit — so every response is
+  // checked before it is believed.
+  const get = async (url, expect) => {
+    const res = await fetch(url, { headers });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
+    const body = await res.json();
+    if (expect === 'array' && !Array.isArray(body)) throw new Error(`expected a list from ${url}`);
+    return body;
+  };
+
+  const me = await get(`https://api.github.com/users/${user}`);
+  if (typeof me.public_repos !== 'number') throw new Error('no public_repos in the user payload');
 
   let stars = 0;
   for (let page = 1; page <= 5; page++) {
-    const batch = await (await fetch(
-      `https://api.github.com/users/${user}/repos?per_page=100&type=owner&page=${page}`, { headers },
-    )).json();
-    if (!Array.isArray(batch) || !batch.length) break;
+    const batch = await get(
+      `https://api.github.com/users/${user}/repos?per_page=100&type=owner&page=${page}`, 'array',
+    );
+    if (!batch.length) break;
     stars += batch.reduce((s, r) => s + (r.stargazers_count || 0), 0);
     if (batch.length < 100) break;
   }
-  return { repos: me.public_repos ?? 0, stars };
+  return { repos: me.public_repos, stars };
 }
 
 function sparkline(days, { spark }, x, y, w, h) {
