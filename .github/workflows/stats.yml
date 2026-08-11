@@ -1,0 +1,50 @@
+name: Refresh stat bar
+
+# Regenerates assets/stats-{dark,light}.svg from the live contribution
+# calendar and the public repo list, so the numbers on the profile stay
+# current without depending on any third-party README service.
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/build-stats.mjs
+      - .github/workflows/stats.yml
+
+concurrency:
+  group: stats
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 22
+
+      - name: Build stat bar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/build-stats.mjs "${{ github.repository_owner }}"
+
+      - name: Commit if changed
+        run: |
+          if [ -z "$(git status --porcelain assets)" ]; then
+            echo "stat bar unchanged"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          git commit -m "Refresh the profile stat bar"
+          git push
