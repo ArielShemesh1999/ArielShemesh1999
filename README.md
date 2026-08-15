@@ -179,7 +179,7 @@ A no-build Hebrew RTL site on a light Liquid Glass canvas. Every case study open
 
 <div align="center">
 
-**[LinkedIn ↗](https://www.linkedin.com/in/ariel-shemesh/)** · **[Portfolio ↗](https://arielshemeshweb.vercel.app)** · **[Averya ↗](https://averya.co.il)**
+**[Portfolio ↗](https://arielshemeshweb.vercel.app)** · **[Averya ↗](https://averya.co.il)**
 
 <br>
 
