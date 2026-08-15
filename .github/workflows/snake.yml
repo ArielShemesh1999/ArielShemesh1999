@@ -8,6 +8,13 @@ on:
     branches:
       - main
 
+# Two pushes in quick succession start two runs, and both force-push the
+# same `output` branch. The loser fails on a non-fast-forward and turns the
+# workflow red for a reason that has nothing to do with the profile.
+concurrency:
+  group: snake
+  cancel-in-progress: true
+
 jobs:
   generate:
     permissions:
