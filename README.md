@@ -8,6 +8,50 @@
 
 ---
 
+## How I build agents
+
+Most of my AI work lives in **[fabius](https://github.com/ArielShemesh1999/fabius)** — one autonomous agent, fifteen zero-overlap skills, running the same way on Anthropic, OpenAI, Google, Mistral and Groq. The agent is the easy half. The apparatus around it is the work.
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### Measured, not asserted
+
+Every benchmark task is answered three ways — the bare model, a *"be concise"* control, and the shipped stance verbatim — then scored by two blind judges that are never told the model or the arm.
+
+Across four Claude tiers the output cut is **20–35% on every model**, and on every capable tier the agent beats the bare model *and* the control. The one regression is printed in the table rather than dropped: it is the empirical case for routing by model tier.
+
+**[Benchmarks ↗](https://github.com/ArielShemesh1999/fabius/blob/main/BENCHMARKS.md)** · [Eval harness ↗](https://github.com/ArielShemesh1999/fabius/tree/main/evals)
+
+</td>
+<td width="33%" valign="top">
+
+### Proven, not claimed
+
+Every release is sealed: a SHA-256 Merkle root over each skill contract, an Ed25519-signed git tag, and an OpenTimestamps proof anchoring the commit into Bitcoin.
+
+`bash provenance/verify.sh` recomputes all of it offline, with no trusted third party. The document also states what each mechanism **does not** prove — the section most provenance pages leave out.
+
+**[Provenance ↗](https://github.com/ArielShemesh1999/fabius/blob/main/PROVENANCE.md)**
+
+</td>
+<td width="34%" valign="top">
+
+### Contracted, not prompted
+
+Behaviour is a file, not a prompt — a routing core, an identity contract, and fifteen skill contracts the agent loads verbatim.
+
+The same frontmatter contract is read by Claude Code, Codex and grok-build, so one folder is discoverable across three harnesses. A zero-dependency Node runtime carries the same rules offline under 75 tests.
+
+**[Architecture ↗](https://github.com/ArielShemesh1999/fabius/blob/main/ARCHITECTURE.md)** · [Identity ↗](https://github.com/ArielShemesh1999/fabius/blob/main/IDENTITY.md)
+
+</td>
+</tr>
+</table>
+
+---
+
 ## Selected work
 
 <table>
