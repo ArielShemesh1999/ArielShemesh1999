@@ -1,0 +1,29 @@
+name: Check profile links
+
+# The profile is a shop window: a card whose asset was renamed renders as a
+# broken image, and a "Live site" button for a product that has been taken
+# down leads nowhere. Neither shows up in a diff, so it is checked here on
+# every change and once a week for the ones that rot on their own.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 22
+
+      - name: Every asset and every product link
+        run: node scripts/check-links.mjs
