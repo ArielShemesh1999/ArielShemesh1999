@@ -1,3 +1,7 @@
+**I build AI systems and the products that carry them** — an autonomous agent that runs the same way on every major model, and Hebrew right-to-left software shipped end to end: storefronts, editors, a PDF workspace, a lead pipeline that signs what it stores.
+
+Independent, in Israel. Everything below is live, and every number on this page is generated from a run rather than typed.
+
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/main/assets/stats-dark.svg" />
@@ -160,6 +164,18 @@ A no-build Hebrew RTL site on a light Liquid Glass canvas. Every case study open
 **[Explore all repositories ↗](https://github.com/ArielShemesh1999?tab=repositories)**
 
 </div>
+
+---
+
+## How I work
+
+**Behaviour is a file, not a prompt.** The agent's stance, its routing rules and its fifteen skill contracts are versioned documents it loads verbatim. A prompt you cannot diff is a prompt you cannot fix.
+
+**Nothing ships on "looks right".** A change is checked against the running system, not the source — headless browser, real URL, console and network asserted. Code reading is fine for *fixing* and not for *concluding*.
+
+**Claims carry receipts, including the ones that hurt.** The benchmark is blind-judged with a control arm, and it prints the one model that regressed. Releases are sealed with a Merkle root, a signed tag and a Bitcoin-anchored timestamp. Three versions of the provenance paper were wrong, and the corrections are in the paper rather than behind it.
+
+**Every artifact is written twice.** Once by the author, once by a reviewer whose only job is to disprove it. On the last pass over these repositories that reviewer pulled 63 unsupported claims — including some the source notes themselves had wrong.
 
 ---
 
