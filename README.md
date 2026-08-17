@@ -179,6 +179,18 @@ A no-build Hebrew RTL site on a light Liquid Glass canvas. Every case study open
 
 ---
 
+## Research
+
+**[A trustless anchor for document provenance ↗](https://github.com/ArielShemesh1999/seal-provenance)**
+
+A signature proves *who*. It does not prove *when* — and in the generative-AI era, *when* is the field that decides whether a document is evidence or a fabrication. A 72-page position and architecture paper on sealing files so their provenance survives adversaries, transcoding, hash breaks and decades of time.
+
+It makes exactly three claims and is explicit about what it does not claim: the hard/soft binding of what, who and when belongs to C2PA and JPEG Trust, and an earlier draft claimed it as novel before review established it was already an ISO standard. The published reference package regenerates every figure in the paper — 15/15 in-EVM assertions on a registry contract with no owner and no upgrade path, a 17-vector conformance suite with real ML-DSA-65, and the benchmarks — so nothing has to be taken on faith.
+
+`Solidity` `EIP-712` `OpenTimestamps` `Certificate Transparency` `ML-DSA-65`
+
+---
+
 ## Contribution graph
 
 <div align="center">
