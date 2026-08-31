@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = new URL('../', import.meta.url);
 const README = fileURLToPath(new URL('README.md', ROOT));
-const OWN_RAW = 'https://raw.githubusercontent.com/ArielShemesh1999/ArielShemesh1999/';
+const OWN_RAW = 'https://raw.githubusercontent.com/shear559/shear559/';
 
 // Hosts that answer automated requests with 403/999 no matter what. Their
 // reachability says nothing about the link, so only the syntax is checked.
@@ -54,7 +54,7 @@ const checks = urls.map(async url => {
   try {
     const res = await fetch(url, {
       redirect: 'follow',
-      headers: { 'user-agent': 'ArielShemesh1999-profile-linkcheck' },
+      headers: { 'user-agent': 'shear559-profile-linkcheck' },
       signal: AbortSignal.timeout(20_000),
     });
     if (res.status >= 400) {

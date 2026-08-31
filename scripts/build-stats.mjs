@@ -8,8 +8,8 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { textRects, textWidth, GLYPH_H } from './pixel-font.mjs';
 
-const USER = process.argv[2] || 'ArielShemesh1999';
-const UA = { 'user-agent': 'ArielShemesh1999-profile-stats' };
+const USER = process.argv[2] || 'shear559';
+const UA = { 'user-agent': 'shear559-profile-stats' };
 
 // The ramp runs sky -> gold across the bar, over near-black. Every number and
 // every spark bar samples the same gradient at its own x, so the three colours
