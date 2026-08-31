@@ -83,7 +83,7 @@ My agency. Twenty-three Hebrew RTL pages that sell the actual work — site buil
 
 **A plugin, not a platform — one set of rules above every model**
 
-Fifteen coordinated, zero-overlap skills under one stance — scout wide, strike narrow. A 22-rule decision core, an IDENTITY contract and the FBS benchmark, loaded above whatever model you already run, inside Claude Code, Codex or Grok Build. Version 2.6.4, cryptographically sealed, and installable by anyone:
+Fifteen coordinated, zero-overlap skills under one stance — scout wide, strike narrow. A 22-rule decision core, an IDENTITY contract and the FBS benchmark, loaded above whatever model you already run, inside Claude Code, Codex or Grok Build. Version 2.6.5, cryptographically sealed, and installable by anyone:
 
 `/plugin marketplace add shear559/fabius`
 
