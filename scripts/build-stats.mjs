@@ -49,7 +49,8 @@ async function contributions(user) {
   days.sort((a, b) => a.date.localeCompare(b.date));
 
   const total = days.reduce((s, d) => s + d.count, 0);
-  return { total, days };
+  const active = days.filter(d => d.count > 0).length;
+  return { total, active, days };
 }
 
 async function account(user) {
@@ -71,16 +72,7 @@ async function account(user) {
   const me = await get(`https://api.github.com/users/${user}`);
   if (typeof me.public_repos !== 'number') throw new Error('no public_repos in the user payload');
 
-  let stars = 0;
-  for (let page = 1; page <= 5; page++) {
-    const batch = await get(
-      `https://api.github.com/users/${user}/repos?per_page=100&type=owner&page=${page}`, 'array',
-    );
-    if (!batch.length) break;
-    stars += batch.reduce((s, r) => s + (r.stargazers_count || 0), 0);
-    if (batch.length < 100) break;
-  }
-  return { repos: me.public_repos, stars };
+  return { repos: me.public_repos };
 }
 
 function sparkline(days, x, y, w, h, scale) {
@@ -115,7 +107,7 @@ function svg(stats, theme) {
   const tiles = [
     { value: nf.format(stats.total), lines: ['CONTRIBUTIONS', 'LAST 12 MONTHS'] },
     { value: nf.format(stats.repos), lines: ['PUBLIC', 'REPOSITORIES'] },
-    { value: nf.format(stats.stars), lines: ['STARS', 'EARNED'] },
+    { value: nf.format(stats.active), lines: ['ACTIVE DAYS', 'LAST 12 MONTHS'] },
   ];
 
   const numY = 8, numH = GLYPH_H * NUM;
@@ -141,7 +133,7 @@ function svg(stats, theme) {
     textRects(sparkLabel, W - textWidth(sparkLabel, LBL), numY + 2, LBL, t.muted)
     + sparkline(stats.days, sparkX, numY + 22, sparkW, sparkH, LBL);
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" shape-rendering="crispEdges" aria-label="${nf.format(stats.total)} contributions in the last 12 months, ${stats.repos} public repositories, ${stats.stars} stars earned">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" shape-rendering="crispEdges" aria-label="${nf.format(stats.total)} contributions in the last 12 months, ${stats.repos} public repositories, ${stats.active} active days">
   <defs>
     <linearGradient id="ramp" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${W}" y2="0">
       <stop offset="0"    stop-color="${t.ramp[0]}"/>
@@ -165,10 +157,10 @@ ${spark}
 }
 
 const [contrib, acct] = await Promise.all([contributions(USER), account(USER)]);
-const stats = { total: contrib.total, days: contrib.days, repos: acct.repos, stars: acct.stars };
+const stats = { total: contrib.total, active: contrib.active, days: contrib.days, repos: acct.repos };
 
 await mkdir(new URL('../assets/', import.meta.url), { recursive: true });
 for (const theme of Object.keys(THEMES)) {
   await writeFile(new URL(`../assets/stats-${theme}.svg`, import.meta.url), svg(stats, theme));
 }
-console.log(`stats: ${stats.total} contributions · ${stats.repos} public repos · ${stats.stars} stars`);
+console.log(`stats: ${stats.total} contributions · ${stats.repos} public repos · ${stats.active} active days`);
