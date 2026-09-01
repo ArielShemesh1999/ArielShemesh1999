@@ -96,7 +96,7 @@ Fifteen coordinated, zero-overlap skills under one stance — scout wide, strike
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=2" alt="Click PDF" width="100%" /></a>
+<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=3" alt="Click PDF" width="100%" /></a>
 
 ### [Click PDF](https://click-pdf.vercel.app)
 
