@@ -62,7 +62,7 @@ The same frontmatter contract is read by Claude Code, Codex and Grok Build, so o
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://averya.co.il"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/averya.webp?v=1" alt="Averya" width="100%" /></a>
+<a href="https://averya.co.il"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/averya.webp?v=2" alt="Averya" width="100%" /></a>
 
 ### [Averya](https://averya.co.il)
 
@@ -77,7 +77,7 @@ My agency. Twenty-three Hebrew RTL pages that sell the actual work — site buil
 </td>
 <td width="50%" valign="top">
 
-<a href="https://fabius-landing.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/fabius.webp?v=1" alt="fabius" width="100%" /></a>
+<a href="https://fabius-landing.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/fabius.webp?v=2" alt="fabius" width="100%" /></a>
 
 ### [fabius](https://fabius-landing.vercel.app)
 
@@ -96,7 +96,7 @@ Fifteen coordinated, zero-overlap skills under one stance — scout wide, strike
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=1" alt="Click PDF" width="100%" /></a>
+<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=2" alt="Click PDF" width="100%" /></a>
 
 ### [Click PDF](https://click-pdf.vercel.app)
 
@@ -111,7 +111,7 @@ Sign, stamp, merge, compress and edit — the whole flow runs in the browser, so
 </td>
 <td width="50%" valign="top">
 
-<a href="https://editor-beta-ruby.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/sculio.webp?v=1" alt="Sculio" width="100%" /></a>
+<a href="https://editor-beta-ruby.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/sculio.webp?v=2" alt="Sculio" width="100%" /></a>
 
 ### [Sculio](https://editor-beta-ruby.vercel.app)
 
@@ -128,7 +128,7 @@ Design a landing page visually and export clean HTML — nothing to install. Sev
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://cryptools-brown.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/cryptools.webp?v=1" alt="Cryptools" width="100%" /></a>
+<a href="https://cryptools-brown.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/cryptools.webp?v=2" alt="Cryptools" width="100%" /></a>
 
 ### [Cryptools](https://cryptools-brown.vercel.app)
 
@@ -143,7 +143,7 @@ Hash, encrypt, sign, derive, generate and convert — from HMAC and Argon2id to 
 </td>
 <td width="50%" valign="top">
 
-<a href="https://arielshemeshweb.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/portfolio.webp?v=1" alt="Personal portfolio" width="100%" /></a>
+<a href="https://arielshemeshweb.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/portfolio.webp?v=2" alt="Personal portfolio" width="100%" /></a>
 
 ### [Personal Portfolio](https://arielshemeshweb.vercel.app)
 
