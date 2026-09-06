@@ -15,6 +15,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT = new URL('../', import.meta.url);
 const README = fileURLToPath(new URL('README.md', ROOT));
 const OWN_RAW = 'https://raw.githubusercontent.com/shear559/shear559/';
+const ANIMATED_ASSETS = new Set([
+  OWN_RAW + 'output/github-snake.svg',
+  OWN_RAW + 'output/github-snake-dark.svg',
+]);
 
 // Hosts that answer automated requests with 403/999 no matter what. Their
 // reachability says nothing about the link, so only the syntax is checked.
@@ -60,6 +64,14 @@ const checks = urls.map(async url => {
     if (res.status >= 400) {
       failures.push(`${res.status} ${url}`);
       return ['http', String(res.status), url];
+    }
+    if (ANIMATED_ASSETS.has(url)) {
+      const body = await res.text();
+      if (!/(?:@keyframes|<animate\b)/.test(body)) {
+        failures.push(`animation missing: ${url}`);
+        return ['anim', 'MISSING', url];
+      }
+      return ['anim', 'ok', url];
     }
     return ['http', String(res.status), url];
   } catch (err) {

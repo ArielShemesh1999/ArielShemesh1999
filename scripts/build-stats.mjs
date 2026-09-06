@@ -119,22 +119,35 @@ function svg(stats, theme) {
     const divider = i > 0
       ? `<rect x="${x - 46}" y="${numY + 4}" width="${LBL}" height="${numH + lineH + 4}" fill="${t.hair}"/>`
       : '';
-    return divider
+    return `<g class="stat-tile stat-tile-${i + 1}">`
+      + divider
       // a one-pixel drop shadow, offset like a sprite, keeps the digits legible
       // on either canvas without a second accent colour
       + textRects(tile.value, x + LBL, numY + LBL, NUM, t.shadow, { opacity: theme === 'dark' ? 0.9 : 0.35 })
       + textRects(tile.value, x, numY, NUM, 'url(#ramp)')
-      + tile.lines.map((line, n) => textRects(line, x, lblY + n * lineH, LBL, t.muted)).join('');
+      + tile.lines.map((line, n) => textRects(line, x, lblY + n * lineH, LBL, t.muted)).join('')
+      + '</g>';
   }).join('');
 
   const sparkW = 246, sparkX = W - sparkW, sparkH = 54;
   const sparkLabel = 'LAST 30 DAYS';
-  const spark =
-    textRects(sparkLabel, W - textWidth(sparkLabel, LBL), numY + 2, LBL, t.muted)
-    + sparkline(stats.days, sparkX, numY + 22, sparkW, sparkH, LBL);
+  const spark = '<g class="stat-spark">'
+    + textRects(sparkLabel, W - textWidth(sparkLabel, LBL), numY + 2, LBL, t.muted)
+    + sparkline(stats.days, sparkX, numY + 22, sparkW, sparkH, LBL)
+    + '</g>';
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" shape-rendering="crispEdges" aria-label="${nf.format(stats.total)} contributions in the last 12 months, ${stats.repos} public repositories, ${stats.active} active days">
   <defs>
+    <style>
+      .stat-tile, .stat-spark { animation: stat-in 520ms ease-out both; }
+      .stat-tile-2 { animation-delay: 80ms; }
+      .stat-tile-3 { animation-delay: 160ms; }
+      .stat-spark { animation-delay: 240ms; }
+      @keyframes stat-in { from { opacity: 0; } to { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) {
+        .stat-tile, .stat-spark { animation: none; }
+      }
+    </style>
     <linearGradient id="ramp" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${W}" y2="0">
       <stop offset="0"    stop-color="${t.ramp[0]}"/>
       <stop offset="0.16" stop-color="${t.ramp[0]}"/>

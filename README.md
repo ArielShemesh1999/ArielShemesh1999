@@ -1,4 +1,4 @@
-**I build AI systems and the products that carry them.** One set of agent rules that runs the same way above every major model, and products shipped end to end, most of them Hebrew-first: an agency site, a visual HTML editor, a PDF workspace, 42 browser-only developer tools, a lead pipeline that signs what it stores.
+**I build AI systems and the products that carry them.** One set of agent rules that runs above the model you already use, plus products shipped end to end — most of them Hebrew-first: business systems, a visual HTML editor, a private PDF workspace, 42 browser tools and signed lead pipelines.
 
 Independent, in Israel. Everything below is live, and every number on this page is measured, not guessed.
 
@@ -22,9 +22,7 @@ Most of my AI work lives in **[fabius](https://github.com/shear559/fabius)** —
 
 ### Measured, not asserted
 
-Every benchmark task is answered three ways — the bare model, a *"be concise"* control, and the plugin's rules verbatim — then scored by two blind judges that are never told which model or which variant they are reading.
-
-Across four Claude tiers the output cut is **20–35% on every model**, and on three of the four the agent beats the bare model *and* the control. The one regression is printed, not dropped.
+Each task is answered by the bare model, a *"be concise"* control and the plugin's rules, then blind-scored. The four-panel benchmark keeps its controls, regressions and limits beside the wins.
 
 **[Benchmarks ↗](https://github.com/shear559/fabius/blob/main/BENCHMARKS.md)** · [Eval harness ↗](https://github.com/shear559/fabius/tree/main/evals)
 
@@ -33,9 +31,7 @@ Across four Claude tiers the output cut is **20–35% on every model**, and on t
 
 ### Proven, not claimed
 
-Every release is sealed: a SHA-256 Merkle root over each skill contract, an Ed25519-signed git tag, and an OpenTimestamps proof that anchors into Bitcoin once confirmed — pending is reported as pending, never as confirmed.
-
-`bash provenance/verify.sh` recomputes all of it offline, with no trusted third party. The document also states what each mechanism **does not** prove.
+Each release carries a SHA-256 Merkle root over the skill contracts, an Ed25519-signed tag and an OpenTimestamps Bitcoin anchor. Pending is reported as pending; `verify.sh` recomputes the evidence offline.
 
 **[Provenance ↗](https://github.com/shear559/fabius/blob/main/PROVENANCE.md)**
 
@@ -44,9 +40,7 @@ Every release is sealed: a SHA-256 Merkle root over each skill contract, an Ed25
 
 ### Contracted, not prompted
 
-Behaviour is a file, not a prompt — a routing core, an identity contract, and 15 skill contracts the agent loads verbatim.
-
-The same frontmatter contract is read by Claude Code, Codex and Grok Build, so one folder serves all three. A zero-dependency Node runtime carries the same rules offline under 132 tests.
+Behaviour is a versioned routing core, an identity contract and 15 skill contracts. Adapters serve Claude Code, Codex and Grok Build; a zero-dependency suite checks the contracts, links and routing rules.
 
 **[Architecture ↗](https://github.com/shear559/fabius/blob/main/ARCHITECTURE.md)** · [Identity ↗](https://github.com/shear559/fabius/blob/main/IDENTITY.md)
 
@@ -62,13 +56,13 @@ The same frontmatter contract is read by Claude Code, Codex and Grok Build, so o
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://averya.co.il"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/averya.webp?v=2" alt="Averya" width="100%" /></a>
+<a href="https://averya.co.il"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/averya.webp?v=3" alt="Averya" width="100%" /></a>
 
 ### [Averya](https://averya.co.il)
 
 **AI specification and implementation for businesses**
 
-My agency. 23 Hebrew RTL pages that sell the work itself — site builds, CRM, automations, agents and GEO (visibility in AI answers). A Gemini chat agent captures the lead inside the conversation; an HMAC-signed pipeline on Cloudflare Workers, D1 and Resend stores it.
+My agency. A 23-page Hebrew RTL system for websites, CRM, automation, agents and GEO. Its homepage turns 28 concrete offers into one guided product story; a Gemini agent qualifies the lead in the conversation, then an HMAC-signed Cloudflare pipeline stores and routes it.
 
 `JavaScript` `GSAP` `Cloudflare Workers` `Gemini`
 
@@ -77,17 +71,13 @@ My agency. 23 Hebrew RTL pages that sell the work itself — site builds, CRM, a
 </td>
 <td width="50%" valign="top">
 
-<a href="https://fabius-landing.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/fabius.webp?v=2" alt="fabius" width="100%" /></a>
+<a href="https://fabius-landing.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/fabius.webp?v=3" alt="fabius" width="100%" /></a>
 
 ### [fabius](https://fabius-landing.vercel.app)
 
 **A plugin, not a platform — one set of rules above every model**
 
-One stance — scout wide, strike narrow — as 15 non-overlapping skills and 22 routing rules that install into Claude Code, Codex or Grok Build and run on the model you already use. Version 2.6.5, sealed, and installable by anyone:
-
-```
-/plugin marketplace add shear559/fabius
-```
+One stance — scout wide, strike narrow — as 15 non-overlapping skills and 22 routing rules that install into Claude Code, Codex or Grok Build and run on the model you already use. Version 2.7.1, sealed and reproducibly checked before release.
 
 `Claude Plugin` `Markdown` `Node.js`
 
@@ -101,13 +91,13 @@ One stance — scout wide, strike narrow — as 15 non-overlapping skills and 22
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=3" alt="Click PDF" width="100%" /></a>
+<a href="https://click-pdf.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/click-pdf.webp?v=4" alt="Click PDF" width="100%" /></a>
 
 ### [Click PDF](https://click-pdf.vercel.app)
 
-**A Hebrew PDF workspace that never uploads your file**
+**A private, mobile-first Hebrew PDF workspace**
 
-Sign, stamp, merge, compress and edit — the whole flow runs in the browser, so no document ever reaches a server. Carries a verifiable SEAL that binds a file to a hash anyone can re-check, behind Turnstile and a Cloudflare Worker edge.
+Sign, stamp, merge, compress and edit in a responsive workspace — the document operations run locally in the browser. A separate verifiable SEAL flow binds a file to a hash anyone can re-check, protected at the edge by Turnstile and a Cloudflare Worker.
 
 `JavaScript` `Cloudflare Workers` `Turnstile`
 
@@ -116,13 +106,13 @@ Sign, stamp, merge, compress and edit — the whole flow runs in the browser, so
 </td>
 <td width="50%" valign="top">
 
-<a href="https://editor-beta-ruby.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/sculio.webp?v=2" alt="Sculio" width="100%" /></a>
+<a href="https://editor-beta-ruby.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/sculio.webp?v=3" alt="Sculio" width="100%" /></a>
 
 ### [Sculio](https://editor-beta-ruby.vercel.app)
 
-**Browser-only visual HTML editor**
+**Visual HTML editor with clean source underneath**
 
-Design a landing page visually and export clean HTML — nothing to install. 70 brand templates and an AI builder that writes in 142 distinct design-system voices, while a zero-styling guardrail keeps your layout intact. RTL-aware and fully client-side.
+Design a landing page visually and export clean HTML — nothing to install. Start from 70 brand templates or use Mix mode to fuse three systems into one direction; the editor stays RTL-aware while account authority and publishing run through Cloudflare.
 
 `JavaScript` `Cloudflare Workers` `Resend`
 
@@ -136,13 +126,13 @@ Design a landing page visually and export clean HTML — nothing to install. 70 
 <tr>
 <td width="50%" valign="top">
 
-<a href="https://cryptools-brown.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/cryptools.webp?v=2" alt="CryptoTools" width="100%" /></a>
+<a href="https://cryptools-brown.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/cryptools.webp?v=3" alt="CryptoTools" width="100%" /></a>
 
 ### [CryptoTools](https://cryptools-brown.vercel.app)
 
 **42 privacy-first developer tools**
 
-Hash, encrypt, sign, derive, generate and convert — from HMAC and Argon2id to Shamir secret sharing, PASETO and post-quantum ML-KEM/ML-DSA. Everything runs in your own browser — no upload, no analytics, no backend — and keeps working offline. Only two lookups ever leave the page, DNS-over-HTTPS and a k-anonymity Have I Been Pwned check, and only when you trigger them.
+Nine groups for hashing, encryption, signatures, key derivation, generation and conversion — from HMAC and Argon2id to Shamir secret sharing, PASETO and post-quantum ML-KEM/ML-DSA. Computation stays in the browser. Only two explicit lookups leave the page, DNS-over-HTTPS and a k-anonymity Have I Been Pwned check, and only when triggered.
 
 `JavaScript` `Web Crypto API` `No backend`
 
@@ -151,13 +141,13 @@ Hash, encrypt, sign, derive, generate and convert — from HMAC and Argon2id to 
 </td>
 <td width="50%" valign="top">
 
-<a href="https://arielshemeshweb.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/portfolio.webp?v=2" alt="Personal portfolio" width="100%" /></a>
+<a href="https://arielshemeshweb.vercel.app"><img src="https://raw.githubusercontent.com/shear559/shear559/main/assets/work/portfolio.webp?v=3" alt="Personal portfolio" width="100%" /></a>
 
 ### [Personal Portfolio](https://arielshemeshweb.vercel.app)
 
 **11 case studies, each with a live demo**
 
-A no-build Hebrew RTL site: pure-black landing surfaces with one green accent, light reading pages behind them. Every case study opens both a written study and the working product it describes. The site also carries long-form writing on AI and agents, an on-site AI assistant and an HMAC-gated Cloudflare lead pipeline.
+A no-build Hebrew RTL site with dark landing surfaces and quiet reading pages behind them. Each selected case study opens both the written work and the running product; a filterable project index, long-form writing, an on-site AI assistant and an HMAC-gated Cloudflare lead pipeline complete the system.
 
 `JavaScript` `Cloudflare Workers`
 
@@ -175,9 +165,7 @@ A no-build Hebrew RTL site: pure-black landing surfaces with one green accent, l
 
 **Nothing ships on "looks right".** A change is checked against the running system, not the source — headless browser, real URL, console and network asserted. Code reading is fine for *fixing* and not for *concluding*.
 
-**Claims carry receipts, including the ones that hurt.** The benchmark prints the one model that regressed, the release seal reports its Bitcoin anchor as pending until it is confirmed, and three versions of the provenance paper were wrong — the corrections are in the paper rather than behind it.
-
-**Every artifact is written twice.** Once by the author, once by a reviewer whose only job is to disprove it. On the last pass over these repositories that reviewer pulled 63 unsupported claims — including some the source notes themselves had wrong.
+**Claims carry receipts, including the ones that hurt.** Benchmarks keep regressions visible, release seals distinguish pending anchors from confirmed ones, and research corrections stay in the record rather than disappearing behind the next version.
 
 ---
 
